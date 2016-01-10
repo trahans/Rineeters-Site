@@ -1,4 +1,5 @@
-﻿using System;
+﻿using rinita_stephan.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +8,7 @@ using System.Web.Http;
 
 namespace rinita_stephan.Controllers
 {
-    public class TestController : ApiController
+    public class RSVPController : ApiController
     {
         // GET api/<controller>
         public IEnumerable<string> Get()
@@ -22,12 +23,15 @@ namespace rinita_stephan.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public string Post([FromBody] RSVP rsvp)
         {
+            // TODO: validate and write rsvp to database
+            // TODO: return message response
+            return "hello";
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
