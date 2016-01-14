@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using Rinita.Stephan.Models;
+using System.Linq;
 
 namespace Rinita.Stephan.Controllers
 {
@@ -9,7 +10,12 @@ namespace Rinita.Stephan.Controllers
 		// GET api/<controller>
 		public IEnumerable<string> Get()
 		{
-			return new string[] { "value1", "value2" };
+            var rsvps = new List<RSVP>();
+            using (var context = new WeddingContext())
+            {
+                rsvps = context.RSVPs.ToList();
+            }
+			return new string[] { rsvps[0].Name, rsvps[0].Email };
 		}
 
 		// GET api/<controller>/5
