@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using Rinita.Stephan.Models;
+using System.Web.Http.Cors;
 
 namespace Rinita.Stephan.Controllers
 {
+    [EnableCors(origins:"*", headers:"*",methods:"*")]
 	public class RSVPController : ApiController
 	{
 		// GET api/<controller>
