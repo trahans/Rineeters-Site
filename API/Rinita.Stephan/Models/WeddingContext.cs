@@ -9,7 +9,6 @@ namespace Rinita.Stephan.Models
     public class WeddingContext:DbContext
     {
         public WeddingContext()
-            : base("Rinita.StephanDB")
         {
 
         }
