@@ -1,80 +1,213 @@
-<!-- index.html -->
-
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 <head>
-  <title>Angular Forms</title>
 
-  <!-- LOAD BOOTSTRAP CSS -->
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-       <script src="app.js"></script>
+<meta charset="UTF-8"/>
+
+<title>Rinita and Stephan's Wedding</title>
+
+<meta name="description" content="Rinta and Stephan's Wedding">
+
+<meta name="author" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/theme.css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+-->
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/menustick.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/masonry.js"></script>
+<script src="js/imgloaded.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/colorfinder.js"></script>
+<script src="js/gridscroll.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/common.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/rsvpform.js"></script>
+
 </head>
+<body>
+<!--wrapper start-->
+<div class="wrapper" id="wrapper">
+	
+	<!--header-->
+	<header>
+	<div class="banner row" id="banner">		
+		<div class="parallax text-center" style="background-image: url('img/engagement/High Resolution/D05Q7664.jpg');">
+			<div class="parallax-pattern-overlay">
+				<div class="container text-center" style="height:900px;padding-top:600px;">
+					<h2 class="intro wow zoomIn" wow-data-delay="0.4s" wow-data-duration="0.9s">Rinita and Stephan's Wedding</h2>
+                    <h1 class="intro wow zoomIn" wow-data-delay="20s" wow-data-duration="0.9s">June 25th, 2016 * 4:30pm</h1>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="menu">
+		<div class="navbar-wrapper">
+			<div class="container">
+				<div class="navwrapper">
+					<div class="navbar navbar-inverse navbar-static-top">
+						<div class="container">
+							<div class="navArea">
+								<div class="navbar-collapse collapse">
+									<ul class="nav navbar-nav">
+										<li class="menuItem active"><a href="#wrapper">Home</a></li>
+										<li class="menuItem"><a href="#wedding">The Event</a></li>
+										<li class="menuItem"><a href="#rsvp">RSVP</a></li>
+										<li class="menuItem"><a href="#accommodations">Accommodations</a></li>
+										<li class="menuItem"><a href="#registry">Registry</a></li>
+										<li class="menuItem"><a href="#contact">Contact Us</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	</header>
+		
+	<!--wedding event-->
+	<section class="wedding" id="wedding">
+	<div class="container">
+		<div class="heading text-center">
+			<img class="dividerline" src="img/sep.png" alt="">
+			<h4>June 25th, 2016, 4:30pm </h4>
+			<img class="dividerline" src="img/sep.png" alt="">
+			<h3>Our wedding is cool. It is here.</h3>
+		</div>			
+	</div>
+	</section>
+	
+	<!--RSVP-->
+	<section class="rsvp" id="rsvp" ng-app="formApp" ng-controller="formAppController">
+	<div class="container">
+		<div class="heading text-center">
+			<img class="dividerline" src="img/sep.png" alt="">
+			<h2>RSVP</h2>
+			<img class="dividerline" src="img/sep.png" alt="">
+            <div id="success" ng-show="success">You've submitted your RSVP form!</div>
+            <div id="fail" ng-show="fail">An internal error occurred.</div>
+			<!-- FORM -->
+            <form ng-submit="processForm()" ng-hide="success">
+                <!-- NAME -->
+                <div id="name-group" class="form-group" width="10px" ng-class="{'has-error' : errorName }">
+                    <label>Name</label>
+                    <input required type="text" maxLength="100" name="name" class="form-control" placeholder="John Smith" ng-model="formData.name">
+                    <span class="help-block" ng-show = "errorName">{{ errorName }}</span>
+                </div>
 
-<body ng-app="formApp" ng-controller="formAppController">
-<div class="container">
-<div class="col-md-6 col-md-offset-3">
+                <!-- EMAIL ADDRESS -->
+                <div id="email-group" class="form-group" ng-class="{'has-error' : errorEmail }">
+                    <label>Email Address</label>
+                    <input required type="email"; width="15px"; maxLength="100" name="email" class="form-control" placeholder="johnsmith@gmail.com" ng-model="formData.email">
+                    <span class="help-block" ng-show = "errorName">{{ errorEmail }}</span>
+                </div>
 
-  <!-- PAGE TITLE -->
-  <div class="page-header">
-    <h1>~R.S.V.P.~</h1>
-  </div>
+                 <!-- RSVP RADIO SELECTION -->
+                <div id="RSVP-group" class="form-group">
+                    <label>Are you attending?</label>
+                    <input required type="radio" name="RSVP" ng-model="formData.RSVP" ng-value= "true"> Yes
+                    <input type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="false"> No
+                </div>
 
-  <!-- SHOW ERROR/SUCCESS MESSAGES -->
-  <div id="success" ng-show="success">You've submitted your RSVP form!</div>
-  <div id="fail" ng-show="fail">An internal error occurred.</div>
+                <div ng-show="formData.RSVP">
+                    <!-- NUMBER OF ATTENDEES -->
+                    <div id="numberAttend-group" class="form-group" ng-class="{'has-error' : errorNumberAttend }">
+                        <label>How many are attending with you?</label>
+                        <input type="number" min="0" max="10" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberAttend">
+                        <span class="help-block" ng-show = "errorNumberAttend">{{ errorNumberAttend }}</span>
+                    </div>
 
-  <!-- FORM -->
-  <form ng-submit="processForm()" ng-hide="success">
-    <!-- NAME -->
-    <div id="name-group" class="form-group" ng-class="{'has-error' : errorName }">
-      <label>Name</label>
-      <input required type="text" maxLength="100" name="name" class="form-control" placeholder="John Smith" ng-model="formData.name">
-      <span class="help-block" ng-show = "errorName">{{ errorName }}</span>
-    </div>
+                    <!-- COMMENT -->
+                    <div id="comment-group" class="form-group" ng-class="{'has-error' : errorComment }">
+                        <label>Comments</label>
+                        <textarea type="text" maxLength="1000" name="comment" class="form-control" placeholder="Leave us a message! Tell us what song will get you on the dance floor, or if you have any dietary requirements" 
+                            ng-model="formData.comment"></textarea>
+                        <span class="help-block" ng-show = "errorComment">{{ errorComment }} </span>
+                    </div>
+                </div>
 
-    <!-- EMAIL ADDRESS -->
-    <div id="email-group" class="form-group" ng-class="{'has-error' : errorEmail }">
-      <label>Email Address</label>
-      <input required type="email" maxLength="100" name="email" class="form-control" placeholder="johnsmith@gmail.com" ng-model="formData.email">
-      <span class="help-block" ng-show = "errorName">{{ errorEmail }}</span>
-    </div>
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="btn btn-primary btn-lg">RSVP</button>
+            </form>
 
-   <!-- RSVP RADIO SELECTION -->
-    <div id="RSVP-group" class="form-group">
-      <label>Are you attending?</label>
-      <input required type="radio" name="RSVP" ng-model="formData.RSVP" ng-value= "true"> Yes
-      <input type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="false"> No
-    </div>
-
-    <div ng-show="formData.RSVP">
-        <!-- NUMBER OF ATTENDEES -->
-        <div id="numberAttend-group" class="form-group" ng-class="{'has-error' : errorNumberAttend }">
-        <label>How many are attending with you?</label>
-        <input type="number" min="0" max="100" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberAttend">
-        <span class="help-block" ng-show = "errorNumberAttend">{{ errorNumberAttend }}</span>
-        </div>
-
-        <!-- COMMENT -->
-        <div id="comment-group" class="form-group" ng-class="{'has-error' : errorComment }">
-        <label>Comments</label>
-        <textarea type="text" maxLength="1000" name="comment" class="form-control" placeholder="Leave us a message! Tell us what song will get you on the dance floor, or if you have any dietary requirements" 
-            ng-model="formData.comment"></textarea>
-        <span class="help-block" ng-show = "errorComment">{{ errorComment }} </span>
-        </div>
-    </div>
-
-    <!-- SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-success btn-lg btn-block">
-      RSVP    </button>
-  </form>
-
-<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
-<pre>
-    {{ processData }}
-</pre>
-
-</div>
-</div>
+            <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED 
+            <pre>
+                {{ processData }}
+            </pre>-->
+		</div>
+	</div>
+	</section>
+	
+	<!--accommodations-->
+	<section class="accommodations" id="accommodations">
+		<div class="container">
+			<div class="heading text-center">
+				<img class="dividerline" src="img/sep.png" alt="">
+				<h2>Accommodations</h2>
+				<img class="dividerline" src="img/sep.png" alt="">
+                <h3> A pretty hotel. </h3>
+			</div>
+		</div>
+	</section>
+	
+	<!--registry-->
+	<section class="registry" id="registry">
+	<div class="container">
+		<div class="heading">
+			<img class="dividerline" src="img/sep.png" alt="">
+			<h2>Registry</h2>
+			<img class="dividerline" src="img/sep.png" alt="">
+			<h3>Buy stuff for us.<br> Please</h3>
+		</div>
+	</div>
+	</section>
+	
+	<!--contact-->
+	<section class="contact" id="contact">
+	<div class="container">
+		<div class="heading">
+				<img class="dividerline" src="img/sep.png" alt="">
+				<h2>Contact Us</h2>
+				<img class="dividerline" src="img/sep.png" alt="">
+				<h3> Email us at: fsdkjfbnakdjsngfad@ngkjds.comd</h3>
+		</div>
+	</div>
+	</section>
+  
+	<!--footer-->
+	<section class="footer" id="footer">
+	<p class="text-center">
+		<a href="#wrapper" class="gototop"><i class="fa fa-angle-double-up fa-2x"></i></a>
+	</p>
+	<div class="container">
+	</div>
+	</section>
+	
+</div><!--wrapper end-->
 </body>
 </html>

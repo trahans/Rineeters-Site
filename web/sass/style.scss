@@ -1,7 +1,23 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #323;
+$font-stack: 'Montserrat', sans-serif;
+$primary-color: #333;
+$secondary-color: #777;
+$line-height: 1.7;
 
 body {
   font: 100% $font-stack;
-  color: $primary-color;
+  color: $secondary-color;
+  font-size:16px;
+  font-weight:400;
+  overflow-x:hidden;
+  background-image: url(../img/seamless_paper_texture.png);
+  background-repeat: repeat;
+  line-height: $line-height;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight:700;
+}
+
+.playball {
+	font-family:'Playball',cursive;
 }
