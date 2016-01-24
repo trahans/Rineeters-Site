@@ -3,16 +3,24 @@ using System.Web.Http;
 using Rinita.Stephan.Models;
 using System.Linq;
 using System.Web.Http.Cors;
+using Rinita.Stephan.Helpers;
 
 namespace Rinita.Stephan.Controllers
 {
     [EnableCors(origins:"*", headers:"*",methods:"*")]
 	public class RSVPController : ApiController
 	{
-		// GET api/<controller>
+        private readonly IPostHelper _postHelper;
+
+        public RSVPController(IPostHelper postHelper)
+        {
+            _postHelper = postHelper;
+        }
+
+        // GET api/<controller>
 		public IEnumerable<RSVP> Get()
 		{
-            var rsvps = new List<RSVP>();
+            List<RSVP> rsvps;
             using (var context = new WeddingContext())
             {
                 rsvps = context.Rsvps.ToList();
@@ -20,28 +28,10 @@ namespace Rinita.Stephan.Controllers
 			return rsvps;
 		}
 
-		// GET api/<controller>/5
-		public string Get(int id)
-		{
-			return "value";
-		}
-
 		// POST api/<controller>
 		public string Post([FromBody] RSVP rsvp)
 		{
-			// TODO: validate and write rsvp to database
-			// TODO: return message response
-			return "hello";
-		}
-
-		// PUT api/<controller>/5
-		public void Put(int id, [FromBody] string value)
-		{
-		}
-
-		// DELETE api/<controller>/5
-		public void Delete(int id)
-		{
+		    return _postHelper.AddRsvp(rsvp);
 		}
 	}
 }
