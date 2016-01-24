@@ -17,6 +17,7 @@ namespace Rinita.Stephan
 			// Register 
 			builder.RegisterType<EntityWrapper>().As<IEntityWrapper>();
 			builder.RegisterType<PostHelper>().As<IPostHelper>();
+		    builder.RegisterType<GetHelper>().As<IGetHelper>();
 
 			// Get your HttpConfiguration.
 			var config = GlobalConfiguration.Configuration;

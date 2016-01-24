@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Rinita.Stephan.Models;
 
 namespace Rinita.Stephan.Wrappers
@@ -8,12 +8,19 @@ namespace Rinita.Stephan.Wrappers
     {
         public void AddRsvpItem(RSVP rsvp)
         {
-            throw new NotImplementedException();
+            using (var context = new WeddingContext())
+            {
+                context.Rsvps.Add(rsvp);
+                context.SaveChanges();
+            }
         }
 
         public IEnumerable<RSVP> GetAllRsvps()
         {
-            throw new NotImplementedException();
+            using (var context = new WeddingContext())
+            {
+                return context.Rsvps.ToList();
+            }
         }
     }
 }
