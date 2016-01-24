@@ -10,14 +10,14 @@ namespace Rinita.Stephan.Controllers
 	public class RSVPController : ApiController
 	{
 		// GET api/<controller>
-		public IEnumerable<string> Get()
+		public IEnumerable<RSVP> Get()
 		{
             var rsvps = new List<RSVP>();
             using (var context = new WeddingContext())
             {
-                rsvps = context.RSVPs.ToList();
+                rsvps = context.Rsvps.ToList();
             }
-			return new string[] { rsvps[0].Name, rsvps[0].Email };
+			return rsvps;
 		}
 
 		// GET api/<controller>/5
