@@ -1,4 +1,5 @@
 ﻿using NSubstitute;
+using NSubstitute.Core.Arguments;
 using NUnit.Framework;
 using Rinita.Stephan.Helpers;
 using Rinita.Stephan.Models;
@@ -24,7 +25,7 @@ namespace Rinita.Stephan.Tests.Helpers
         public void AddRsvp_CorrectData_CallingEntityWrapperAddRsvpItem()
         {
             // setup
-            var rsvp = new RSVP();
+            var rsvp = new RSVP {Name="Mister Test", Email="test@example.com"};
 
             // action
             _postHelper.AddRsvp(rsvp);
@@ -34,10 +35,75 @@ namespace Rinita.Stephan.Tests.Helpers
         }
 
         [Test]
+        public void AddRsvp_CorrectData_ReturnsSuccessMessage()
+        {
+            // setup
+            var rsvp = new RSVP { Name = "Mister Test", Email = "test@example.com" };
+
+            // action
+            var msg = _postHelper.AddRsvp(rsvp);
+
+            // assert
+            Assert.AreEqual(Constants.SuccessMessage, msg);
+        }
+
+        [Test]
+        public void AddRsvp_NoValueForName_ReturnsErrorMessage()
+        {
+            // setup
+            var rsvp = new RSVP {Email = "test@example.com"};
+
+            // action
+            var msg = _postHelper.AddRsvp(rsvp);
+
+            // assert
+            Assert.AreEqual(Constants.ErrorMessage, msg);
+        }
+
+        [Test]
+        public void AddRsvp_NoValueForEmail_ReturnsErrorMessage()
+        {
+            // setup
+            var rsvp = new RSVP { Name = "Mister Test" };
+
+            // action
+            var msg = _postHelper.AddRsvp(rsvp);
+
+            // assert
+            Assert.AreEqual(Constants.ErrorMessage, msg);
+        }
+
+        [Test]
+        public void AddRsvp_NoValueForName_EntityWrapperAddRsvpItemNotCalled()
+        {
+            // setup
+            var rsvp = new RSVP { Email = "test@example.com" };
+
+            // action
+            _postHelper.AddRsvp(rsvp);
+
+            // assert
+            _entityWrapper.DidNotReceive().AddRsvpItem(Arg.Any<RSVP>());
+        }
+
+        [Test]
+        public void AddRsvp_NoValueForEmail_EntityWrapperAddRsvpItemNotCalled()
+        {
+            // setup
+            var rsvp = new RSVP { Name = "Mister Test" };
+
+            // action
+            _postHelper.AddRsvp(rsvp);
+
+            // assert
+            _entityWrapper.DidNotReceive().AddRsvpItem(Arg.Any<RSVP>());
+        }
+
+        [Test]
         public void AddRsvp_PoorlyFormattedEmail_EmailIsFormattedProperly()
         {
             // setup
-            var rsvp = new RSVP {Email = "tEsT@ExAmPlE.CoM"};
+            var rsvp = new RSVP { Name = "Mister Test", Email = "tEsT@ExAmPlE.CoM"};
 
             // action
             _postHelper.AddRsvp(rsvp);
@@ -53,6 +119,7 @@ namespace Rinita.Stephan.Tests.Helpers
 
             // action
             var msg = _postHelper.AddRsvp(null);
+
             // assert
             Assert.AreEqual(Constants.ErrorMessage, msg);
         }
@@ -60,7 +127,14 @@ namespace Rinita.Stephan.Tests.Helpers
         [Test]
         public void AddRsvp_RsvpIsNull_EntityWrapperAddRsvpItemNotCalled()
         {
-            
+            // setup
+
+            // action
+            _postHelper.AddRsvp(null);
+
+            // assert
+            _entityWrapper.DidNotReceive().AddRsvpItem(Arg.Any<RSVP>());
+            _entityWrapper.DidNotReceive().AddRsvpItem(null);
         }
     }
 }
