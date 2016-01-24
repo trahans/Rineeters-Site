@@ -13,11 +13,6 @@ namespace Rinita.Stephan.Controllers
         private readonly IPostHelper _postHelper;
         private readonly IGetHelper _getHelper;
 
-	    public RSVPController()
-	    {
-		    
-	    }
-
         public RSVPController(IPostHelper postHelper, IGetHelper getHelper)
         {
             _postHelper = postHelper;
