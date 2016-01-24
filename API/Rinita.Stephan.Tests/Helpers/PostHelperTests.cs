@@ -1,5 +1,4 @@
 ﻿using NSubstitute;
-using NSubstitute.Core.Arguments;
 using NUnit.Framework;
 using Rinita.Stephan.Helpers;
 using Rinita.Stephan.Models;

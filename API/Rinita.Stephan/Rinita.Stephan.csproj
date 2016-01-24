@@ -112,6 +112,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\GetHelper.cs" />
+    <Compile Include="Helpers\IGetHelper.cs" />
     <Compile Include="Helpers\IPostHelper.cs" />
     <Compile Include="Helpers\PostHelper.cs" />
     <Compile Include="Models\RSVP.cs" />

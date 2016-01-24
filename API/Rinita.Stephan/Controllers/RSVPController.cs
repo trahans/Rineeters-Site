@@ -11,26 +11,23 @@ namespace Rinita.Stephan.Controllers
 	public class RSVPController : ApiController
 	{
         private readonly IPostHelper _postHelper;
+        private readonly IGetHelper _getHelper;
 
 	    public RSVPController()
 	    {
 		    
 	    }
 
-        public RSVPController(IPostHelper postHelper)
+        public RSVPController(IPostHelper postHelper, IGetHelper getHelper)
         {
             _postHelper = postHelper;
+            _getHelper = getHelper;
         }
 
         // GET api/<controller>
 		public IEnumerable<RSVP> Get()
 		{
-            List<RSVP> rsvps;
-            using (var context = new WeddingContext())
-            {
-                rsvps = context.Rsvps.ToList();
-            }
-			return rsvps;
+		    return _getHelper.GetAllRsvps();
 		}
 
 		// POST api/<controller>
