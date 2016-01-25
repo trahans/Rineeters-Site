@@ -1,3 +1,153 @@
 body {
-  font: 100% Helvetica, sans-serif;
-  color: #323; }
+  font: 100% "Lora", sans-serif;
+  color: #777;
+  font-size: 15px;
+  font-weight: 450;
+  overflow-x: hidden;
+  background-image: url(../img/seamless_paper_texture.png);
+  background-repeat: repeat;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200; }
+
+.fancyFont {
+  font-family: 'Alex Brush',cursive; }
+
+.titleHeading {
+  font-size: 60px;
+  line-height: 1.0;
+  font-weight: 500;
+  color: #fff;
+  font-family: 'Alex Brush',cursive; }
+
+a {
+  color: #022869 !important;
+  text-decoration: none; }
+
+a:hover {
+  color: #33a6cc !important;
+  text-decoration: none !important; }
+
+.textBoxContainer {
+  max-width: 500px;
+  margin: auto; }
+
+.zolaButton {
+  content: url("../img/zolaLogo.png");
+  position: center;
+  width: 200px;
+  height: 126px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.zolaButton:hover {
+  content: url("../img/zolapridelogo.png");
+  position: center;
+  width: 200px;
+  height: 126px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.accommHeading {
+  font-weight: bold;
+  font-size: 15px; }
+
+.accommHeadingTitle {
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 10px; }
+
+.accommLayout p {
+  padding-bottom: 25px; }
+
+hr {
+  border: 0 !important;
+  height: 1px !important;
+  background-image: linear-gradient(to right, #afa790, #777, #afa790); }
+
+.toDoLayout p {
+  padding-bottom: 10px; }
+
+ul {
+  margin-left: auto;
+  padding-left: 1em;
+  text-align: left; }
+
+.list {
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #333;
+  max-width: 250px;
+  margin: auto; }
+
+a {
+  font-weight: bold;
+  font-size: 15px; }
+
+.boxed {
+  border: 2px solid #022869;
+  padding: 10px;
+  margin: auto;
+  max-width: 400px; }
+
+/*---------------------------------------------------- 	Parallax------------------------------------------------------*/
+.parallax {
+  background-image: url("../img/engagement/High Resolution/D05Q7664.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed !important;
+  overflow: hidden; }
+
+.parallax-pattern-overlay {
+  background-image: url(../img/pattern.png);
+  background-repeat: repeat; }
+
+/*---------------------------------------------------- Titles ------------------------------------------------------*/
+.sectionTitle {
+  text-align: center;
+  max-width: 960px;
+  margin: 0px auto;
+  color: #333;
+  font: 100% "Alex Brush", cursive;
+  font-size: 50px;
+  font-weight: 500; }
+
+/*---------------------------------------------------- 	RSVP Form------------------------------------------------------*/
+.btn-primary {
+  background: #022869;
+  color: #ffffff; }
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background: #33a6cc; }
+
+.successMessage {
+  color: #DAD7CF;
+  background: #337AB7;
+  font-size: 20px;
+  max-width: 250px;
+  margin: auto;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.transformable {
+  -webkit-transition: height 1000ms linear;
+  -moz-transition: height 100ms linear;
+  -o-transition: height 100ms linear;
+  -ms-transition: height 100ms linear;
+  transition: height 100ms linear; }
+
+.small {
+  height: 250px; }
+
+.big {
+  max-height: 600px; }
