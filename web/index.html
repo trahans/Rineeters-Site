@@ -6,7 +6,7 @@
     <title> Rinita and Stephan's Wedding</title>
     <meta name="description" content="Rinita and Stephan's Wedding">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
@@ -20,7 +20,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="./bower_components/ngSticky/lib/sticky.js"></script>
     <script src="./js/rsvpform.js"></script>
-
+    
+    
     <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 
@@ -45,17 +46,26 @@
     <!--Menu Bar-->
         <nav sticky class="navbar navbar-default">
             <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#rsvp">RSVP</a></li>
-                    <li><a href="#venue">Venue</a></li>
-                    <li><a href="#aboutUs">About Us</a></li>
-                    <li><a href="#accommodations">Accommodations</a></li>
-                    <li><a href="#FAQ">FAQ</a></li>
-                    <li><a href="#registry">Registry</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#rsvp">RSVP</a></li>
+                        <li><a href="#venue">Venue</a></li>
+                        <li><a href="#aboutUs">About Us</a></li>
+                        <li><a href="#accommodations">Accommodations</a></li>
+                        <li><a href="#FAQ">FAQ</a></li>
+                        <li><a href="#registry">Registry</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                 </div>
+             </div>
         </nav>
 
 
