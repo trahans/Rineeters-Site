@@ -13,7 +13,7 @@
             $scope.processData=$scope.formData;
             $http({
             method  : 'POST',
-            url     : 'http://test.rinita-stephan.com/api/RSVP',
+            url     : 'http://test.rinita-stephan.com/api/RSVPs',
             data    : $scope.formData,  // pass in data as strings
             headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
             }).then(function successCallback(response) {

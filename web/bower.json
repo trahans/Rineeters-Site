@@ -1,0 +1,21 @@
+{
+  "name": "web",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "velossien <tararochegrimm@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/trahans/Rineeters-Site",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ngSticky": "^1.8.7"
+  }
+}

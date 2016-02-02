@@ -136,14 +136,15 @@ a {
   max-width: 250px;
   margin: auto;
   border-radius: 5px;
-  padding-top: 15px;
-  padding-bottom: 15px; }
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
+.internalError {
+  color: #FF0000;
+  font-size: 20px; }
 
 .transformable {
   -webkit-transition: height 1000ms linear;
-  -moz-transition: height 100ms linear;
-  -o-transition: height 100ms linear;
-  -ms-transition: height 100ms linear;
   transition: height 100ms linear; }
 
 .small {
@@ -151,3 +152,6 @@ a {
 
 .big {
   max-height: 600px; }
+
+.navbar {
+  position: fixed; }
