@@ -1,3 +1,5 @@
+# 
+
 # Logs
 logs
 *.log
@@ -24,7 +26,8 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
+**/node_modules
+**/bower_components
 
 # Optional npm cache directory
 .npm

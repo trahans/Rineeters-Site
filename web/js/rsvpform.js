@@ -1,5 +1,6 @@
+/* global angular */
 // define angular module/app
-    var formApp = angular.module('formApp', []);
+    var formApp = angular.module('formApp', ['sticky']);
 
     // create angular controller and pass in $scope and $http
     formApp.controller("formAppController", function ($scope, $http) {       
