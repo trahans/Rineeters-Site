@@ -24,11 +24,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Alex Brush',cursive; }
 
 a {
-  color: #022869 !important;
+  color: #022869;
   text-decoration: none; }
 
 a:hover {
-  color: #33a6cc !important;
+  color: #33a6cc;
   text-decoration: none !important; }
 
 .textBoxContainer {
@@ -96,6 +96,29 @@ a {
   margin: auto;
   max-width: 400px; }
 
+/*----------------------------------------------------Menu Bar------------------------------------------------------*/
+.navbar {
+  background-color: #333; }
+
+.menu {
+  height: 20px; }
+  .menu .navbar-nav {
+    background-color: #333;
+    text-align: center;
+    width: 100%; }
+    .menu .navbar-nav li {
+      float: none !important;
+      display: inline-block; }
+      .menu .navbar-nav li a {
+        color: #fff !important;
+        text-decoration: none; }
+      .menu .navbar-nav li .active {
+        background-color: #022869 !important;
+        color: #fff; }
+      .menu .navbar-nav li a:hover:not(.active) {
+        background-color: #022869;
+        color: #33a6cc; }
+
 /*---------------------------------------------------- 	Parallax------------------------------------------------------*/
 .parallax {
   background-image: url("../img/engagement/High Resolution/D05Q7664.jpg");
@@ -142,13 +165,3 @@ a {
 .internalError {
   color: #FF0000;
   font-size: 20px; }
-
-.transformable {
-  -webkit-transition: height 1000ms linear;
-  transition: height 100ms linear; }
-
-.small {
-  height: 250px; }
-
-.big {
-  max-height: 600px; }

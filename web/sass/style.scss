@@ -34,12 +34,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-	color:#022869!important;
+	color:#022869;
 	text-decoration: none;
 }
 
 a:hover {
-    color:#33a6cc!important;
+    color:#33a6cc;
     text-decoration: none !important;
 }
 
@@ -123,6 +123,41 @@ a{
     margin:auto;
     max-width: 400px;
 }
+
+/*----------------------------------------------------Menu Bar------------------------------------------------------*/
+.navbar {
+    background-color: #333;
+}
+
+.menu {
+    height:20px;
+
+    .navbar-nav {
+        background-color:#333;
+        text-align: center;
+        width: 100%;
+       
+        li {
+            float: none !important;
+            display: inline-block;
+            a {
+                color: #fff !important;
+                text-decoration: none;
+            }
+            .active {
+                background-color: #022869 !important;
+                color: #fff;
+            }
+                
+            a:hover:not(.active) {
+                background-color: #022869;
+                color: #33a6cc;
+            }
+        }
+            
+    }
+}
+
 /*---------------------------------------------------- 	Parallax------------------------------------------------------*/
 .parallax {
 	background-image: url('../img/engagement/High Resolution/D05Q7664.jpg');
@@ -177,18 +212,6 @@ a{
     font-size: 20px;
 }
 
-//.wrap {overflow:hidden;}
-.transformable {
-    -webkit-transition: height 1000ms linear;
-    transition: height 100ms linear;
-}
 
-.small {
-    height:250px;
-}
-
-.big {
-  max-height:600px;
-}
 
 
