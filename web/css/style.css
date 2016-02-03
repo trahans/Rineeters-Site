@@ -1,12 +1,12 @@
 body {
-  font: 100% "Lora", sans-serif;
+  font: 100% "lora", sans-serif;
   color: #777;
   font-size: 15px;
   font-weight: 450;
   overflow-x: hidden;
   background-image: url(../img/seamless_paper_texture.png);
   background-repeat: repeat;
-  line-height: 1.7;
+  line-height: 1.2em;
   text-align: center;
   margin: 0px; }
 
@@ -14,13 +14,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 200; }
 
 .fancyFont {
-  font-family: 'Alex Brush',cursive; }
-
-.titleHeading {
-  font-size: 60px;
-  line-height: 1.0;
-  font-weight: 500;
-  color: #fff;
   font-family: 'Alex Brush',cursive; }
 
 a {
@@ -33,7 +26,8 @@ a:hover {
 
 .textBoxContainer {
   max-width: 500px;
-  margin: auto; }
+  margin: auto;
+  padding-bottom: 20px; }
 
 .zolaButton {
   content: url("../img/zolaLogo.png");
@@ -42,7 +36,8 @@ a:hover {
   height: 126px;
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  padding-bottom: 15px; }
 
 .zolaButton:hover {
   content: url("../img/zolapridelogo.png");
@@ -54,12 +49,11 @@ a:hover {
   margin-right: auto; }
 
 .accommHeading {
-  font-weight: bold;
-  font-size: 15px; }
+  font-weight: bold; }
 
 .accommHeadingTitle {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 140%px;
   padding-top: 10px; }
 
 .accommLayout p {
@@ -79,52 +73,87 @@ ul {
   text-align: left; }
 
 .list {
-  padding-left: 20px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  border: 1px solid #333;
+  padding-left: 25px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  border: 2px solid #022869;
   max-width: 250px;
   margin: auto; }
 
 a {
-  font-weight: bold;
-  font-size: 15px; }
+  font-weight: bold; }
 
+section {
+  padding-bottom: 30px; }
+
+.titleHeading {
+  font-size: 7vmin;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #fff;
+  font-family: 'Alex Brush',cursive; }
+
+.paddington {
+  padding-bottom: 10px; }
+
+/*---------------------------------Text Boxes----------------------------------*/
 .boxed {
   border: 2px solid #022869;
-  padding: 10px;
+  padding: 22px;
   margin: auto;
   max-width: 400px; }
 
-/*----------------------------------------------------Menu Bar------------------------------------------------------*/
+/*---------------------------------Dividers----------------------------------*/
+.dividerline {
+  max-width: 600px;
+  /* actual img width */
+  *height: 40px;
+  /* actual img height - IE7 */
+  background-image: url(../img/sepfixed.png);
+  background-size: cover;
+  background-position: center;
+  margin: auto; }
+
+.dividerline:after {
+  content: " ";
+  display: block;
+  width: 100%;
+  padding-top: 4.918%;
+  /* slope */
+  height: 40px;
+  /* start height */ }
+
+.afterDivider {
+  padding-top: 50px; }
+
+/*---------------------------------Menu Bar----------------------------------*/
 .navbar {
   background-color: #333; }
 
-.menu {
-  height: 20px; }
-  .menu .navbar-nav {
-    background-color: #333;
-    text-align: center;
-    width: 100%; }
-    .menu .navbar-nav li {
-      float: none !important;
-      display: inline-block; }
-      .menu .navbar-nav li a {
-        color: #fff !important;
-        text-decoration: none; }
-      .menu .navbar-nav li .active {
-        background-color: #022869 !important;
-        color: #fff; }
-      .menu .navbar-nav li a:hover:not(.active) {
-        background-color: #022869;
-        color: #33a6cc; }
+.menu .navbar-nav {
+  background-color: #333;
+  text-align: center;
+  width: 100%;
+  padding: 0; }
+  .menu .navbar-nav li {
+    float: none !important;
+    display: inline-block; }
+    .menu .navbar-nav li a {
+      color: #fff !important;
+      text-decoration: none; }
+    .menu .navbar-nav li .active {
+      background-color: #022869 !important;
+      color: #fff; }
+    .menu .navbar-nav li a:hover:not(.active) {
+      background-color: #022869;
+      color: #33a6cc; }
 
 /*---------------------------------------------------- 	Parallax------------------------------------------------------*/
 .parallax {
-  background-image: url("../img/engagement/High Resolution/D05Q7664.jpg");
+  background-image: url("../img/engagement/High Resolution/D05Q7664crop.jpg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: 100%;
+  background-size: cover;
   text-align: center;
   background-repeat: no-repeat;
   background-attachment: fixed !important;
@@ -134,6 +163,10 @@ a {
   background-image: url(../img/pattern.png);
   background-repeat: repeat; }
 
+.containerTitle {
+  height: 95vh;
+  padding-top: 60vh; }
+
 /*---------------------------------------------------- Titles ------------------------------------------------------*/
 .sectionTitle {
   text-align: center;
@@ -141,10 +174,10 @@ a {
   margin: 0px auto;
   color: #333;
   font: 100% "Alex Brush", cursive;
-  font-size: 50px;
+  font-size: 220%;
   font-weight: 500; }
 
-/*---------------------------------------------------- 	RSVP Form------------------------------------------------------*/
+/*-------------------------------- 	RSVP Form-----------------------------------------*/
 .btn-primary {
   background: #022869;
   color: #ffffff; }
@@ -155,7 +188,7 @@ a {
 .successMessage {
   color: #DAD7CF;
   background: #337AB7;
-  font-size: 20px;
+  font-size: 130%;
   max-width: 250px;
   margin: auto;
   border-radius: 5px;
@@ -165,3 +198,8 @@ a {
 .internalError {
   color: #FF0000;
   font-size: 20px; }
+
+.form {
+  margin: auto; }
+
+/*--------------------------------Responsive Web Design-----------------------------------------*/

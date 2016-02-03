@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     
     <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
@@ -29,7 +30,7 @@
         <div class="banner row" id="banner">
             <div class="parallax">
                 <div class="parallax-pattern-overlay">
-                    <div class="container" style="height:900px;padding-top:600px;">
+                    <div class="containerTitle">
                         <h2 class="titleHeading">Rinita and Stephan's Wedding</h2>
                         <h1 class="titleHeading">June 25th, 2016 * 4:30pm</h1>
                     </div>
@@ -64,13 +65,12 @@
         </nav>
 
 
-
     <!--RSVP-->
     <section class="rsvp" id="rsvp"  ng-controller="formAppController">
-        <div class="transformable" ng-class="{'small':isSmall, 'big':!isSmall}">
-            <img class="dividerline" src="img/sep.png" alt="">
-            <h2 class="sectionTitle">RSVP</h2>
-            <img class="dividerline" src="img/sep.png" alt="">
+        <div class="dividerline"></div>
+        <h2 class="sectionTitle">RSVP</h2>
+        <div class="dividerline"></div>
+        <div class="afterDivider">
             <div id="success" ng-show="success" class="successMessage">You've submitted your RSVP&nbsp;form!</div>
             <div id="fail" ng-show="fail" class="internalError">An internal error occurred.</div>
             <!-- FORM -->
@@ -123,10 +123,10 @@
 
     <!--the venue-->
     <section class="venue" id="venue">
-        <div>
-            <img class="dividerline" src="img/sep.png" alt="">
-            <h2 class="sectionTitle">Our Wedding Venue </h2>
-            <img class="dividerline" src="img/sep.png" alt="">
+        <div class="dividerline"></div>
+        <h2 class="sectionTitle">Our Wedding Venue </h2>
+        <div class="dividerline"></div>
+        <div class="afterDivider">
             <h4>June 25th, 2016, 4:30pm </h4>
             <p class="accommHeadingTitle">Castle in the Clouds</p>
             <div class="textBoxContainer">
@@ -138,20 +138,22 @@
                 <p>Search for the innovations of the time - central vacuuming, ammonia brine refridgeration, intercom systems.
                     Admission to the mansion is optional. Rates can be found <a href="http://www.castleintheclouds.org/visit-the-castle/hours-and-admission/">here</a>.</p>
             </div>
-            <div class="list">
-                <p class="accommHeadingTitle">Things To Do</p>
-                <ul>
-                    <li>Lucknow Museum</li>
-                    <li>The Art Gallery</li>
-                    <li>Cones in the Clouds (by
-                        <br> Shannon Pond)</li>
-                    <li>Horseback Riding</li>
-                    <li>Hiking</li>
-                    <li>Carriage House Restaurant
-                        <br>(lunch from 11:30am - 3:30pm)</li>
-                </ul>
-                <a href="http://www.castleintheclouds.org/visit-the-castle/hiking-recreation/">Click for more information!</a>
-            </div>
+            <div class="paddington">
+                <div class="list">
+                    <p class="accommHeadingTitle">Things To Do</p>
+                    <ul>
+                        <li>Lucknow Museum</li>
+                        <li>The Art Gallery</li>
+                        <li>Cones in the Clouds (by
+                            <br> Shannon Pond)</li>
+                        <li>Horseback Riding</li>
+                        <li>Hiking</li>
+                        <li>Carriage House Restaurant
+                            <br>(lunch from 11:30am - 3:30pm)</li>
+                    </ul>
+                    <a href="http://www.castleintheclouds.org/visit-the-castle/hiking-recreation/">Click for more information!</a>
+                </div>
+            </div>    
             <p class="accommHeadingTitle">Directions</p>
             <div class="textBoxContainer">
                 <p> If you are coming for a tour earlier in the day or would like to use the one-way Scenic Road:
@@ -164,9 +166,10 @@
                 <p> However, if you want to take a tour you will need to pay for tour tickets either at the gate or inside the
                     gift shop. In any situation, parking is complimentary.</p>
             </div>
-
-            <div class="boxed textBoxContainer">
-                <p class="accommHeading">A helpful directions page can be printed from here: <a href="http://www.castleintheclouds.org/getting-here">http://www.castleintheclouds.org/getting-here</a></p>
+            <div class="paddington">
+                <div class="boxed">
+                    <p class="accommHeading">A helpful directions page can be printed from here: <a href="http://www.castleintheclouds.org/getting-here">http://www.castleintheclouds.org/getting-here</a></p>
+                </div>
             </div>
             <p class="accommHeadingTitle">What time should I arrive?</p>
             <div class="textBoxContainer">
@@ -179,31 +182,31 @@
 
     <!--About Us-->
     <section class="aboutUs" id="aboutUs">
-        <div>
-            <img class="dividerline" src="img/sep.png" alt="">
+            <div class="dividerline"></div>
             <h2 class="sectionTitle">About Us </h2>
-            <img class="dividerline" src="img/sep.png" alt="">
-            <div class="textBoxContainer">
-                <p> We met our senior year of high school during AP Chemistry back in 2008. It was by luck that Rinita and Stephan
-                    sat together. The room was in sets of two desks, but with only nine students, the teacher asked everyone
-                    to move together at the front of the room. Rinita just happened to pick Stephan to sit next to….Stephan
-                    needs to write this shit.</p>
-                <p>We love waterfalls</p>
-                <p>Stephan writes poems for rinita</p>
-                <p>We like food in boston</p>
-                <p>Proposal story</p>
-                <p>?Rinita likes- pretty photography, cooking, eating</p>
-                <p>?Stephan likes- soccer, music</p>
+            <div class="dividerline"></div>
+            <div class="afterDivider">
+                <div class="textBoxContainer">
+                    <p> We met our senior year of high school during AP Chemistry back in 2008. It was by luck that Rinita and Stephan
+                        sat together. The room was in sets of two desks, but with only nine students, the teacher asked everyone
+                        to move together at the front of the room. Rinita just happened to pick Stephan to sit next to….Stephan
+                        needs to write this shit.</p>
+                    <p>We love waterfalls</p>
+                    <p>Stephan writes poems for rinita</p>
+                    <p>We like food in boston</p>
+                    <p>Proposal story</p>
+                    <p>?Rinita likes- pretty photography, cooking, eating</p>
+                    <p>?Stephan likes- soccer, music</p>
+                </div>
             </div>
-        </div>
     </section>
 
     <!--accommodations-->
     <section class="accommodations" id="accommodations">
-        <div>
-            <img class="dividerline" src="img/sep.png" alt="">
-            <h2 class="sectionTitle">Accommodations</h2>
-            <img class="dividerline" src="img/sep.png" alt="">
+        <div class="dividerline"></div>
+        <h2 class="sectionTitle">Accommodations</h2>
+        <div class="dividerline"></div>
+        <div class="afterDivider">
             <div class="textBoxContainer">
                 <div class="accommLayout">
                     <p>We strongly recommend booking a place to stay in the next few weeks, the Lakes region is a highly popular
@@ -252,7 +255,7 @@
                         if you simply contact the owner.</p>
                 </div>
                 <hr>
-                <div class="toDoLayout">
+                <div class="textBoxContainer">
                     <p class="accommHeadingTitle">Things To Do</p>
                     <p>The Lakes Region is popular for hiking, swimming, boating, camping, fishing, kayaking, golfing, breweries,
                         etc. Tons of scenic views and places to see!
@@ -285,9 +288,9 @@
     <!--FAQ-->
     <section class="FAQ" id="FAQ">
         <div>
-            <img class="dividerline" src="img/sep.png" alt="">
+            <div class="dividerline"></div>
             <h2 class="sectionTitle">Let's Get Married!</h2>
-            <img class="dividerline" src="img/sep.png" alt="">
+            <div class="dividerline"></div>
             <div class="textBoxContainer">
                 <div class="accommLayout">
                     <span class="accommHeading">Food/Dietary Concerns</span>
@@ -320,9 +323,9 @@
     <!--registry-->
     <section class="registry" id="registry">
         <div>
-            <img class="dividerline" src="img/sep.png" alt="">
+            <div class="dividerline"></div>
             <h2 class="sectionTitle">Registry</h2>
-            <img class="dividerline" src="img/sep.png" alt="">
+            <div class="dividerline"></div>
             <div class="textBoxContainer">
                 <p>We are so grateful to have your support as friends and family. We have registered at Zola.</p>
                 <p>If you purchase something through another source, please let us or one of our family members know so that
@@ -340,9 +343,9 @@
     <!--contact-->
     <section class="contact" id="contact">
         <div>
-            <img class="dividerline" src="img/sep.png" alt="">
+            <div class="dividerline"></div>
             <h2 class="sectionTitle">Contact Us</h2>
-            <img class="dividerline" src="img/sep.png" alt="">
+            <div class="dividerline"></div>
             <div class="textBoxContainer">
                 <p>Guys! I have a question!</p>
                 <p>Ask away! You can reach us at <a href="mailto:rzst2016@gmail.com">rzst2016@gmail.com</a>, phone, our personal
@@ -350,6 +353,18 @@
             </div>
         </div>
     </section>
+    
+    <!--footer-->
+	<section class="footer" id="footer">
+	<p class="text-center">
+		<a href="#"><span class="fa fa-arrow-circle-up"></span></a>
+	</p>
+	<div class="container">
+		<p>
+			&copy; 2015 Grimm<br>
+		</p>
+	</div>
+	</section>
 </body>
 
 </html>
