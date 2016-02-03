@@ -1,5 +1,5 @@
 body {
-  font: 100% "lora", sans-serif;
+  font: 100% "Roboto", sans-serif;
   color: #777;
   font-size: 15px;
   font-weight: 450;
@@ -124,7 +124,7 @@ section {
   /* start height */ }
 
 .afterDivider {
-  padding-top: 50px; }
+  padding-top: 30px; }
 
 /*---------------------------------Menu Bar----------------------------------*/
 .navbar {
