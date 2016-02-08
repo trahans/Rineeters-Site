@@ -6,21 +6,23 @@
     <title> Rinita and Stephan's Wedding</title>
     <meta name="description" content="Rinita and Stephan's Wedding">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    
-    <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
-    
+    <link href='https://fonts.googleapis.com/css?family=Cinzel:400,700' rel='stylesheet' type='text/css'>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="./bower_components/ngSticky/lib/sticky.js"></script>
-    
+
     <script src="./js/rsvpform.js"></script>
-    
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -31,23 +33,28 @@
         <div class="banner row" id="banner">
             <div class="parallax">
                 <div class="parallax-pattern-overlay">
-                    <div class="containerTitle">
-                        <h2 class="titleHeading">Rinita and Stephan's Wedding</h2>
-                        <h1 class="titleHeading">June 25th, 2016 * 4:30pm</h1>
+                    <div class="titlePage">
+                    </div>
+                    <div class="paddingtonBigger">
+                        <h2 class="titleHeading">Rinita and Stephan</h2>
+                        <h1 class="titleHeading">June 25th, 2016</h1>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
     
-    <!--Menu Bar-->
+
+    <div class="bodyDiv">
+        <!--Menu Bar-->
         <nav sticky class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
+                        <span class="icon-bar"></span>
                     </button>
                 </div>
                 <div class="collapse navbar-collapse menu" id="myNavbar">
@@ -61,311 +68,321 @@
                         <li><a href="#registry">Registry</a></li>
                         <li><a href="#contact">Contact Us</a></li>
                     </ul>
-                 </div>
-             </div>
+                </div>
+            </div>
         </nav>
 
+        <div class=" paddingDiv">
+            <!--RSVP-->
+            <section class="rsvp" id="rsvp" ng-controller="formAppController">
+                <div class="dividerline"></div>
+                <h2 class="sectionTitle">RSVP</h2>
+                <div class="dividerline"></div>
+                <div class="afterDivider boxed">
+                    <div id="success" ng-show="success" class="successBar">You've submitted your RSVP&nbsp;form!</div>
+                    <div id="fail" ng-show="fail" class="internalError">An internal error occurred.</div>
+                    <!-- FORM -->
+                    <form class="textBoxContainer" ng-submit="processForm()" ng-hide="success">
+                        <!-- NAME -->
+                        <div id="name-group" class="form-group" width="10px" ng-class="{'has-error' : errorName }">
+                            <label>Name</label>
+                            <input required type="text" maxLength="100" name="name" class="form-control" placeholder="John Smith" ng-model="formData.name">
+                            <span class="help-block" ng-show="errorName">{{ errorName }}</span>
+                        </div>
 
-    <!--RSVP-->
-    <section class="rsvp" id="rsvp"  ng-controller="formAppController">
-        <div class="dividerline"></div>
-        <h2 class="sectionTitle">RSVP</h2>
-        <div class="dividerline"></div>
-        <div class="afterDivider">
-            <div id="success" ng-show="success" class="successMessage">You've submitted your RSVP&nbsp;form!</div>
-            <div id="fail" ng-show="fail" class="internalError">An internal error occurred.</div>
-            <!-- FORM -->
-            <form class="textBoxContainer" ng-submit="processForm()" ng-hide="success">
-                <!-- NAME -->
-                <div id="name-group" class="form-group" width="10px" ng-class="{'has-error' : errorName }">
-                    <label>Name</label>
-                    <input required type="text" maxLength="100" name="name" class="form-control" placeholder="John Smith" ng-model="formData.name">
-                    <span class="help-block" ng-show="errorName">{{ errorName }}</span>
+                        <!-- EMAIL ADDRESS -->
+                        <div id="email-group" class="form-group" ng-class="{'has-error' : errorEmail }">
+                            <label>Email Address</label>
+                            <input required type="email" ; width="15px" ; maxLength="100" name="email" class="form-control" placeholder="johnsmith@gmail.com"
+                            ng-model="formData.email">
+                            <span class="help-block" ng-show="errorName">{{ errorEmail }}</span>
+                        </div>
+
+                        <!-- RSVP RADIO SELECTION -->
+                        <div id="RSVP-group" class="form-group">
+                            <label>Are you attending?</label>
+                            <input required type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="true"> Yes
+                            <input type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="false"> No
+                        </div>
+
+                        <div ng-show="formData.RSVP">
+                            <!-- NUMBER OF ATTENDEES -->
+                            <div id="numberAttend-group" class="form-group" ng-class="{'has-error' : errorNumberAttend }">
+                                <label>How many are attending with you?</label>
+                                <input type="number" min="0" max="10" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberAttend">
+                                <span class="help-block" ng-show="errorNumberAttend">{{ errorNumberAttend }}</span>
+                            </div>
+
+                            <!-- COMMENT -->
+                            <div id="comment-group" class="form-group" ng-class="{'has-error' : errorComment }">
+                                <label>Comments</label>
+                                <textarea type="text" maxLength="1000" name="comment" class="form-control" placeholder="Leave us a message! Tell us what song will get you on the dance floor, or if you have any dietary requirements"
+                                ng-model="formData.comment"></textarea>
+                                <span class="help-block" ng-show="errorComment">{{ errorComment }} </span>
+                            </div>
+                        </div>
+
+                        <!-- SUBMIT BUTTON -->
+                        <button type="submit" class="btn btn-primary btn-lg">RSVP</button>
+                        <!--to create animation: <button type="submit" class="btn btn-primary btn-lg" ng-click="isSmall = !isSmall">RSVP</button>-->
+                    </form>
                 </div>
+            </section>
 
-                <!-- EMAIL ADDRESS -->
-                <div id="email-group" class="form-group" ng-class="{'has-error' : errorEmail }">
-                    <label>Email Address</label>
-                    <input required type="email" ; width="15px" ; maxLength="100" name="email" class="form-control" placeholder="johnsmith@gmail.com"
-                    ng-model="formData.email">
-                    <span class="help-block" ng-show="errorName">{{ errorEmail }}</span>
-                </div>
-
-                <!-- RSVP RADIO SELECTION -->
-                <div id="RSVP-group" class="form-group">
-                    <label>Are you attending?</label>
-                    <input required type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="true"> Yes
-                    <input type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="false"> No
-                </div>
-
-                <div ng-show="formData.RSVP">
-                    <!-- NUMBER OF ATTENDEES -->
-                    <div id="numberAttend-group" class="form-group" ng-class="{'has-error' : errorNumberAttend }">
-                        <label>How many are attending with you?</label>
-                        <input type="number" min="0" max="10" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberAttend">
-                        <span class="help-block" ng-show="errorNumberAttend">{{ errorNumberAttend }}</span>
+            <!--the venue-->
+            <section class="venue" id="venue">
+                <div class="dividerline"></div>
+                <h2 class="sectionTitle">Our Wedding Venue </h2>
+                <div class="dividerline"></div>
+                <div class="afterDivider">
+                    <h4>June 25th, 2016, 4:30pm </h4>
+                    <p class="accommHeadingTitle">Castle in the Clouds</p>
+                    <div class="textBoxContainer">
+                        <p>The Lucknow Estate, was built in 1913 high in the Ossipee Mountain Range by Thomas Gustave Plant.
+                            It has been known as the Castle in the Clouds since it's opening to the public in 1959.</p>
+                        <p>Revel in the beauty of the views, while taking in the magnificent features Plant had installed in
+                            his home. Enjoy a self guided tour as if time stood still in the early 1900s, rooms are still
+                            set up as if the owners had just stepped out for the day, and vintage apparel adorns the house
+                            in closets.</p>
+                        <p>Search for the innovations of the time - central vacuuming, ammonia brine refridgeration, intercom
+                            systems. Admission to the mansion is optional. Rates can be found <a href="http://www.castleintheclouds.org/visit-the-castle/hours-and-admission/">here</a>.</p>
                     </div>
-
-                    <!-- COMMENT -->
-                    <div id="comment-group" class="form-group" ng-class="{'has-error' : errorComment }">
-                        <label>Comments</label>
-                        <textarea type="text" maxLength="1000" name="comment" class="form-control" placeholder="Leave us a message! Tell us what song will get you on the dance floor, or if you have any dietary requirements"
-                        ng-model="formData.comment"></textarea>
-                        <span class="help-block" ng-show="errorComment">{{ errorComment }} </span>
+                    <div class="paddington">
+                        <div class="list">
+                            <p class="accommHeadingTitle">Things To Do</p>
+                            <ul>
+                                <li>Lucknow Museum</li>
+                                <li>The Art Gallery</li>
+                                <li>Cones in the Clouds (by
+                                    <br> Shannon Pond)</li>
+                                <li>Horseback Riding</li>
+                                <li>Hiking</li>
+                                <li>Carriage House Restaurant
+                                    <br>(lunch from 11:30am - 3:30pm)</li>
+                            </ul>
+                            <a href="http://www.castleintheclouds.org/visit-the-castle/hiking-recreation/">Click for more information!</a>
+                        </div>
+                    </div>
+                    <p class="accommHeadingTitle">Directions</p>
+                    <div class="textBoxContainer">
+                        <p> If you are coming for a tour earlier in the day or would like to use the one-way Scenic Road:
+                            <br><a href="https://www.google.com/maps/place/455+Old+Mountain+Rd,+Moultonborough,+NH+03254/@43.7203889,-71.3240254,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb33e7a404d3c8b:0xe2d0675222c728b7?sa=X&ved=0ahUKEwi43dDU5cPKAhVG8j4KHYRrBE4Q8gEIGzAA">455 Old Mountain Road, Moultonborough, NH 03254</a></p>
+                        <p> If you are coming for lunch or the wedding:
+                            <br><a href="https://www.google.com/maps/place/Ossipee+Park+Rd,+Moultonborough,+NH+03254/@43.7329686,-71.3373487,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb33e4081eb3a59:0x94ec5bf7dade64a2">586 Ossipee Park Road, Moultonborough, NH 03254</a></p>
+                        <p> Both roads go up to the Castle and to the same parking lot. The difference is that the Scenic Road
+                            will take you to the front gate where you will have to explain that you have come for the Zanzerkia-Trahan
+                            Wedding and do not need to pay for admission.</p>
+                        <p> However, if you want to take a tour you will need to pay for tour tickets either at the gate or inside
+                            the gift shop. In any situation, parking is complimentary.</p>
+                    </div>
+                    <div class="paddington">
+                        <div class="boxed">
+                            <p class="accommHeading">A helpful directions page can be printed from here: <a href="http://www.castleintheclouds.org/getting-here">http://www.castleintheclouds.org/getting-here</a></p>
+                        </div>
+                    </div>
+                    <p class="accommHeadingTitle">What time should I arrive?</p>
+                    <div class="textBoxContainer">
+                        <p> We kindly ask that you arrive before 4:30pm.</p>
+                        <p> After parking, you may meet at the Carriage House. Here, a trolley will whisk you up to the top of
+                            the mountain in just a few minutes! If you are early the Carriage House has excellent food and
+                            drinks!</p>
                     </div>
                 </div>
+            </section>
 
-                <!-- SUBMIT BUTTON -->
-                <button type="submit" class="btn btn-primary btn-lg">RSVP</button>
-                <!--to create animation: <button type="submit" class="btn btn-primary btn-lg" ng-click="isSmall = !isSmall">RSVP</button>-->
-            </form>
-        </div>
-    </section>
-
-    <!--the venue-->
-    <section class="venue" id="venue">
-        <div class="dividerline"></div>
-        <h2 class="sectionTitle">Our Wedding Venue </h2>
-        <div class="dividerline"></div>
-        <div class="afterDivider">
-            <h4>June 25th, 2016, 4:30pm </h4>
-            <p class="accommHeadingTitle">Castle in the Clouds</p>
-            <div class="textBoxContainer">
-                <p>The Lucknow Estate, was built in 1913 high in the Ossipee Mountain Range by Thomas Gustave Plant. It has
-                    been known as the Castle in the Clouds since it's opening to the public in 1959.</p>
-                <p>Revel in the beauty of the views, while taking in the magnificent features Plant had installed in his home.
-                    Enjoy a self guided tour as if time stood still in the early 1900s, rooms are still set up as if the
-                    owners had just stepped out for the day, and vintage apparel adorns the house in closets.</p>
-                <p>Search for the innovations of the time - central vacuuming, ammonia brine refridgeration, intercom systems.
-                    Admission to the mansion is optional. Rates can be found <a href="http://www.castleintheclouds.org/visit-the-castle/hours-and-admission/">here</a>.</p>
-            </div>
-            <div class="paddington">
-                <div class="list">
-                    <p class="accommHeadingTitle">Things To Do</p>
-                    <ul>
-                        <li>Lucknow Museum</li>
-                        <li>The Art Gallery</li>
-                        <li>Cones in the Clouds (by
-                            <br> Shannon Pond)</li>
-                        <li>Horseback Riding</li>
-                        <li>Hiking</li>
-                        <li>Carriage House Restaurant
-                            <br>(lunch from 11:30am - 3:30pm)</li>
-                    </ul>
-                    <a href="http://www.castleintheclouds.org/visit-the-castle/hiking-recreation/">Click for more information!</a>
+            <!--About Us-->
+            <section class="aboutUs" id="aboutUs">
+                <div class="dividerline"></div>
+                <h2 class="sectionTitle">About Us </h2>
+                <div class="dividerline"></div>
+                <div class="afterDivider">
+                    <div class="textBoxContainer">
+                        <p> We met our senior year of high school during AP Chemistry back in 2008. It was by luck that Rinita
+                            and Stephan sat together. The room was in sets of two desks, but with only nine students, the
+                            teacher asked everyone to move together at the front of the room. Rinita just happened to pick
+                            Stephan to sit next to….Stephan needs to write this shit.</p>
+                        <p>We love waterfalls</p>
+                        <p>Stephan writes poems for rinita</p>
+                        <p>We like food in boston</p>
+                        <p>Proposal story</p>
+                        <p>?Rinita likes- pretty photography, cooking, eating</p>
+                        <p>?Stephan likes- soccer, music</p>
+                    </div>
                 </div>
-            </div>    
-            <p class="accommHeadingTitle">Directions</p>
-            <div class="textBoxContainer">
-                <p> If you are coming for a tour earlier in the day or would like to use the one-way Scenic Road:
-                    <br><a href="https://www.google.com/maps/place/455+Old+Mountain+Rd,+Moultonborough,+NH+03254/@43.7203889,-71.3240254,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb33e7a404d3c8b:0xe2d0675222c728b7?sa=X&ved=0ahUKEwi43dDU5cPKAhVG8j4KHYRrBE4Q8gEIGzAA">455 Old Mountain Road, Moultonborough, NH 03254</a></p>
-                <p> If you are coming for lunch or the wedding:
-                    <br><a href="https://www.google.com/maps/place/Ossipee+Park+Rd,+Moultonborough,+NH+03254/@43.7329686,-71.3373487,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb33e4081eb3a59:0x94ec5bf7dade64a2">586 Ossipee Park Road, Moultonborough, NH 03254</a></p>
-                <p> Both roads go up to the Castle and to the same parking lot. The difference is that the Scenic Road will take
-                    you to the front gate where you will have to explain that you have come for the Zanzerkia-Trahan Wedding
-                    and do not need to pay for admission.</p>
-                <p> However, if you want to take a tour you will need to pay for tour tickets either at the gate or inside the
-                    gift shop. In any situation, parking is complimentary.</p>
-            </div>
-            <div class="paddington">
-                <div class="boxed">
-                    <p class="accommHeading">A helpful directions page can be printed from here: <a href="http://www.castleintheclouds.org/getting-here">http://www.castleintheclouds.org/getting-here</a></p>
-                </div>
-            </div>
-            <p class="accommHeadingTitle">What time should I arrive?</p>
-            <div class="textBoxContainer">
-                <p> We kindly ask that you arrive before 4:30pm.</p>
-                <p> After parking, you may meet at the Carriage House. Here, a trolley will whisk you up to the top of the mountain
-                    in just a few minutes! If you are early the Carriage House has excellent food and drinks!</p>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!--About Us-->
-    <section class="aboutUs" id="aboutUs">
-            <div class="dividerline"></div>
-            <h2 class="sectionTitle">About Us </h2>
-            <div class="dividerline"></div>
-            <div class="afterDivider">
-                <div class="textBoxContainer">
-                    <p> We met our senior year of high school during AP Chemistry back in 2008. It was by luck that Rinita and Stephan
-                        sat together. The room was in sets of two desks, but with only nine students, the teacher asked everyone
-                        to move together at the front of the room. Rinita just happened to pick Stephan to sit next to….Stephan
-                        needs to write this shit.</p>
-                    <p>We love waterfalls</p>
-                    <p>Stephan writes poems for rinita</p>
-                    <p>We like food in boston</p>
-                    <p>Proposal story</p>
-                    <p>?Rinita likes- pretty photography, cooking, eating</p>
-                    <p>?Stephan likes- soccer, music</p>
-                </div>
-            </div>
-    </section>
-
-    <!--accommodations-->
-    <section class="accommodations" id="accommodations">
-        <div class="dividerline"></div>
-        <h2 class="sectionTitle">Accommodations</h2>
-        <div class="dividerline"></div>
-        <div class="afterDivider">
-            <div class="textBoxContainer">
-                <div class="accommLayout">
-                    <p>We strongly recommend booking a place to stay in the next few weeks, the Lakes region is a highly popular
-                        summer tourist destination. We've provided some starting points, but there are many great options
-                        in the area. However, we would advise against the Rodeway House Inn based on reviews. Feel free to
-                        contact our families if you'd like recommendations!</p>
-                    <p><a class="accommHeadingTitle" href="https://www.choicehotels.com/new-hampshire/west-ossipee/econo-lodge-hotels/nh058?source=pmftripblaw&pmf=tripbl">Econo Lodge West Ossipee</a>
-                        <br>
-                        <span class="accommHeading">603-301-1426</span>
-                        <br>
-                        <span class="accommHeading"><a href="https://www.google.com/maps/place/2365+NH-16,+West+Ossipee,+NH+03890/@43.8204044,-71.2054685,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb3112316b89daf:0xb9291398f0adf58a">2365 Route 16, West Ossipee, NH 03890</a></span>
-                        <br> The hotel is about 25 minutes from the Castle. It is also close to where Rinita and Stephan's families
-                        will be staying. We have a room block at a reduced rate under "Rinita and Stephan's Wedding". It
-                        is $130+tax/night for a king bed for two adults with a two night minimum, breakfast included. Additional
-                        charge for two double beds and additional adults. We can add more rooms if they say we've filled
-                        our room block.</p>
-
-                    <p><a class="accommHeadingTitle" href="http://www.millfalls.com/">The Inn at Mill Falls (Meredith Center)</a>
-                        <br>
-                        <span class="accommHeading">800-622-6455</span>
-                        <br> Group of differently named hotels that are close together and surrounded by streets of boutiques,
-                        shops, and restaurants. It adjacent to Lake Winnipesaukee. About 25 minutes from the Castle. Somewhat
-                        costly</p>
-
-                    <p><a class="accommHeadingTitle" href="http://www.ballardhouseinn.com/">Ballard House Inn</a>
-                        <br>
-                        <span class="accommHeading">603-279-3434</span>
-                        <br> There are various bed and breakfast style inns around Meredith and nearby. Our recommendation is
-                        the Ballhard House Inn</p>
-
-                    <p><a class="accommHeadingTitle" href="http://www.centerharborinn.com/">Center Harbor</a>
-                        <br>
-                        <span class="accommHeading">603-253-4347</span>
-                        <br> This is a waterfront option, only 18 minutes from the Castle. Many restaurants and other amenities
-                        nearby. Reviews are mixed.</p>
-
-                    <p><a class="accommHeadingTitle" href="https://www.choicehotels.com/new-hampshire/ashland/comfort-inn-hotels/nh022">Comfort Inn Ashland</a>
-                        <br>
-                        <span class="accommHeading">603-968-7668</span>
-                        <br> This is close to the main highway I-93, so you can begin your return trip sooner. About 40 minutes
-                        from the Castle.</p>
-
-                    <p><a class="accommHeadingTitle" href="http://www.vrbo.com">VRBO</a> or <a class="accommHeadingTitle" href="http://www.vacationrentals.com">Vacation Rentals</a>
-                        <br> You can stay longer or have a larger group together! There are many single homes and cottages. Many
-                        say that they have certain nights of minimums, however most them are willing to do a shorter stay
-                        if you simply contact the owner.</p>
-                </div>
-                <hr>
-                <div class="textBoxContainer">
-                    <p class="accommHeadingTitle">Things To Do</p>
-                    <p>The Lakes Region is popular for hiking, swimming, boating, camping, fishing, kayaking, golfing, breweries,
-                        etc. Tons of scenic views and places to see!
-                        <br> There are a few airport options. One can fly into Boston, MA and rent a car to drive up the venue
-                        (about 2.5 hours).</p>
-
-                    <p>Just north of the Castle is the infamous White Mountains region! Most of the ski slopes offer summer
-                        gondola rides with expansive views of Mount Washington, Tuckermans Ravine, and the Presidential Mountain
-                        Range.
-                        <br> You can get a similar view with the historic Mount Washington Cog Railway, Cannon Mountain Aerial
-                        Tramway, WildCat Mountain Gondola, Hobo Railroad, and so many more.</p>
-                    <p>The flume Gorge has many spectacular waterfalls in Franconia Notch State Park.</p>
-                    <p>Visit the Lost River Gorge and Boulder Caves to see glacial caves, boulders, and even more waterfalls.</p>
-                    <p>The Kancamangus Highway is an excellent scenic drive through the mountains with many places to stop along
-                        the way.</p>
-                    <p>Stephan and I spend most of our weekends and anniversaries in the Lakes Region and the White Mountains
-                        region!
-                        <br> Let us know how long you're staying and we can help you choose some great things to do! We especially
-                        love waterfalls and short hikes if you'd like a recommendation. Please email us, we love trip planning!
-                        <p>
-
-                            <p><a class="accommHeadingTitle" href="http://lakesregion.org/">Click here for more information!</a>
+            <!--accommodations-->
+            <section class="accommodations" id="accommodations">
+                <div class="dividerline"></div>
+                <h2 class="sectionTitle">Accommodations</h2>
+                <div class="dividerline"></div>
+                <div class="afterDivider">
+                    <div class="textBoxContainer">
+                        <div class="accommLayout">
+                            <p>We strongly recommend booking a place to stay in the next few weeks, the Lakes region is a highly
+                                popular summer tourist destination. We've provided some starting points, but there are many
+                                great options in the area. However, we would advise against the Rodeway House Inn based on
+                                reviews. Feel free to contact our families if you'd like recommendations!</p>
+                            <p><a class="accommHeadingTitle" href="https://www.choicehotels.com/new-hampshire/west-ossipee/econo-lodge-hotels/nh058?source=pmftripblaw&pmf=tripbl">Econo Lodge West Ossipee</a>
                                 <br>
-                                <p><a class="accommHeadingTitle" href="http://www.visitwhitemountains.com/things-see-and-do/attractions/major-attractions">Even more info!</a>
+                                <span class="accommHeading">603-301-1426</span>
+                                <br>
+                                <span class="accommHeading"><a href="https://www.google.com/maps/place/2365+NH-16,+West+Ossipee,+NH+03890/@43.8204044,-71.2054685,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb3112316b89daf:0xb9291398f0adf58a">2365 Route 16, West Ossipee, NH 03890</a></span>
+                                <br> The hotel is about 25 minutes from the Castle. It is also close to where Rinita and Stephan's
+                                families will be staying. We have a room block at a reduced rate under "Rinita and Stephan's
+                                Wedding". It is $130+tax/night for a king bed for two adults with a two night minimum, breakfast
+                                included. Additional charge for two double beds and additional adults. We can add more rooms
+                                if they say we've filled our room block.</p>
+
+                            <p><a class="accommHeadingTitle" href="http://www.millfalls.com/">The Inn at Mill Falls (Meredith Center)</a>
+                                <br>
+                                <span class="accommHeading">800-622-6455</span>
+                                <br> Group of differently named hotels that are close together and surrounded by streets of boutiques,
+                                shops, and restaurants. It adjacent to Lake Winnipesaukee. About 25 minutes from the Castle.
+                                Somewhat costly
+                            </p>
+
+                            <p><a class="accommHeadingTitle" href="http://www.ballardhouseinn.com/">Ballard House Inn</a>
+                                <br>
+                                <span class="accommHeading">603-279-3434</span>
+                                <br> There are various bed and breakfast style inns around Meredith and nearby. Our recommendation
+                                is the Ballhard House Inn</p>
+
+                            <p><a class="accommHeadingTitle" href="http://www.centerharborinn.com/">Center Harbor</a>
+                                <br>
+                                <span class="accommHeading">603-253-4347</span>
+                                <br> This is a waterfront option, only 18 minutes from the Castle. Many restaurants and other
+                                amenities nearby. Reviews are mixed.</p>
+
+                            <p><a class="accommHeadingTitle" href="https://www.choicehotels.com/new-hampshire/ashland/comfort-inn-hotels/nh022">Comfort Inn Ashland</a>
+                                <br>
+                                <span class="accommHeading">603-968-7668</span>
+                                <br> This is close to the main highway I-93, so you can begin your return trip sooner. About
+                                40 minutes from the Castle.</p>
+
+                            <p><a class="accommHeadingTitle" href="http://www.vrbo.com">VRBO</a> or <a class="accommHeadingTitle"
+                                href="http://www.vacationrentals.com">Vacation Rentals</a>
+                                <br> You can stay longer or have a larger group together! There are many single homes and cottages.
+                                Many say that they have certain nights of minimums, however most them are willing to do a
+                                shorter stay if you simply contact the owner.</p>
+                        </div>
+                        <hr>
+                        <div class="textBoxContainer">
+                            <p class="accommHeadingTitle">Things To Do</p>
+                            <p>The Lakes Region is popular for hiking, swimming, boating, camping, fishing, kayaking, golfing,
+                                breweries, etc. Tons of scenic views and places to see!
+                                <br> There are a few airport options. One can fly into Boston, MA and rent a car to drive up
+                                the venue (about 2.5 hours).</p>
+
+                            <p>Just north of the Castle is the infamous White Mountains region! Most of the ski slopes offer
+                                summer gondola rides with expansive views of Mount Washington, Tuckermans Ravine, and the
+                                Presidential Mountain Range.
+                                <br> You can get a similar view with the historic Mount Washington Cog Railway, Cannon Mountain
+                                Aerial Tramway, WildCat Mountain Gondola, Hobo Railroad, and so many more.</p>
+                            <p>The flume Gorge has many spectacular waterfalls in Franconia Notch State Park.</p>
+                            <p>Visit the Lost River Gorge and Boulder Caves to see glacial caves, boulders, and even more waterfalls.</p>
+                            <p>The Kancamangus Highway is an excellent scenic drive through the mountains with many places to
+                                stop along the way.</p>
+                            <p>Stephan and I spend most of our weekends and anniversaries in the Lakes Region and the White
+                                Mountains region!
+                                <br> Let us know how long you're staying and we can help you choose some great things to do!
+                                We especially love waterfalls and short hikes if you'd like a recommendation. Please email
+                                us, we love trip planning!
+                                <p>
+
+                                    <p><a class="accommHeadingTitle" href="http://lakesregion.org/">Click here for more information!</a>
+                                        <br>
+                                        <p><a class="accommHeadingTitle" href="http://www.visitwhitemountains.com/things-see-and-do/attractions/major-attractions">Even more info!</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!--FAQ-->
-    <section class="FAQ" id="FAQ">
-        <div>
-            <div class="dividerline"></div>
-            <h2 class="sectionTitle">Let's Get Married!</h2>
-            <div class="dividerline"></div>
-            <div class="textBoxContainer">
-                <div class="accommLayout">
-                    <span class="accommHeading">Food/Dietary Concerns</span>
-                    <br>
-                    <p>We will be having an Indian buffet, but also a few other non-Indian items. If you have any dietary concerns
-                        please reach out to us, we want everyone to be fed well!</p>
-                    <span class="accommHeading">What to wear?</span>
-                    <br>
-                    <p>We want everyone to be comfortable, so we'd say semi-formal is great here! The ceremony location will
-                        have grass, the reception will be indoors. If you would like to change outfits the cocktail hour
-                        will be the best time to do so.</p>
-                    <span class="accommHeading">Party time fun!</span>
-                    <br>
-                    <p>Alcoholic beverages will be available by cash or credit card during cocktail hour and dinner from 5:30-10:30pm.</p>
-                    <span class="accommHeading">Can I bring an additional guest?</span>
-                    <br>
-                    <p>We have such close and exciting family and friends! However, our beautiful venue has limited space and
-                        does not leave any room for unexpected extras. Please check your invite for the number of seats we've
-                        saved for you. We know you have a great time with our group of loved ones!</p>
-                    <span class="accommHeading">What if it rains?!</span>
-                    <br>
-                    <p>Rest assured! The trolleys will get you to the ceremony site, the venue will also provide clear umbrellas
-                        for all guests, as well as towels.</p>
+            <!--FAQ-->
+            <section class="FAQ" id="FAQ">
+                <div>
+                    <div class="dividerline"></div>
+                    <h2 class="sectionTitle">Let's Get Married!</h2>
+                    <div class="dividerline"></div>
+                    <div class="textBoxContainer">
+                        <div class="accommLayout">
+                            <span class="accommHeading">Food/Dietary Concerns</span>
+                            <br>
+                            <p>We will be having an Indian buffet, but also a few other non-Indian items. If you have any dietary
+                                concerns please reach out to us, we want everyone to be fed well!</p>
+                            <span class="accommHeading">What to wear?</span>
+                            <br>
+                            <p>We want everyone to be comfortable, so we'd say semi-formal is great here! The ceremony location
+                                will have grass, the reception will be indoors. If you would like to change outfits the cocktail
+                                hour will be the best time to do so.</p>
+                            <span class="accommHeading">Party time fun!</span>
+                            <br>
+                            <p>Alcoholic beverages will be available by cash or credit card during cocktail hour and dinner
+                                from 5:30-10:30pm.</p>
+                            <span class="accommHeading">Can I bring an additional guest?</span>
+                            <br>
+                            <p>We have such close and exciting family and friends! However, our beautiful venue has limited
+                                space and does not leave any room for unexpected extras. Please check your invite for the
+                                number of seats we've saved for you. We know you have a great time with our group of loved
+                                ones!</p>
+                            <span class="accommHeading">What if it rains?!</span>
+                            <br>
+                            <p>Rest assured! The trolleys will get you to the ceremony site, the venue will also provide clear
+                                umbrellas for all guests, as well as towels.</p>
 
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!--registry-->
-    <section class="registry" id="registry">
-        <div>
-            <div class="dividerline"></div>
-            <h2 class="sectionTitle">Registry</h2>
-            <div class="dividerline"></div>
-            <div class="textBoxContainer">
-                <p>We are so grateful to have your support as friends and family. We have registered at Zola.</p>
-                <p>If you purchase something through another source, please let us or one of our family members know so that
-                    we can check it off!</p>
-            </div>
-            <a href="https://www.zola.com/registry/testt">
-                <div class="zolaButton"></div>
-            </a>
-            <div class="textBoxContainer">
-                <p>We are planning a honeymoon to Hawaii in June of 2017, we look forward to…</p>
-            </div>
-        </div>
-    </section>
+            <!--registry-->
+            <section class="registry" id="registry">
+                <div>
+                    <div class="dividerline"></div>
+                    <h2 class="sectionTitle">Registry</h2>
+                    <div class="dividerline"></div>
+                    <div class="textBoxContainer">
+                        <p>We are so grateful to have your support as friends and family. We have registered at Zola.</p>
+                        <p>If you purchase something through another source, please let us or one of our family members know
+                            so that we can check it off!</p>
+                    </div>
+                    <a href="https://www.zola.com/registry/rinitaandstephan">
+                        <div class="zolaButton"></div>
+                    </a>
+                    <div class="textBoxContainer">
+                        <p>We are planning a honeymoon to Hawaii in June of 2017, we look forward to…</p>
+                    </div>
+                </div>
+            </section>
 
-    <!--contact-->
-    <section class="contact" id="contact">
-        <div>
-            <div class="dividerline"></div>
-            <h2 class="sectionTitle">Contact Us</h2>
-            <div class="dividerline"></div>
-            <div class="textBoxContainer">
-                <p>Guys! I have a question!</p>
-                <p>Ask away! You can reach us at <a href="mailto:rzst2016@gmail.com">rzst2016@gmail.com</a>, phone, our personal
-                    emails, our parents, carrier pigeon, etc.</p>
-            </div>
+            <!--contact-->
+            <section class="contact" id="contact">
+                <div>
+                    <div class="dividerline"></div>
+                    <h2 class="sectionTitle">Contact Us</h2>
+                    <div class="dividerline"></div>
+                    <div class="textBoxContainer">
+                        <p>Guys! I have a question!</p>
+                        <p>Ask away! You can reach us at <a href="mailto:rzst2016@gmail.com">rzst2016@gmail.com</a>, phone,
+                            our personal emails, our parents, carrier pigeon, etc.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--footer-->
+            <section class="footer" id="footer">
+                <p class="text-center">
+                    <a href="#"><span class="fa fa-arrow-circle-up"></span></a>
+                </p>
+                <div class="container">
+                    <p>
+                        &copy; 2015 Grimm
+                        <br>
+                    </p>
+                </div>
+            </section>
         </div>
-    </section>
-    
-    <!--footer-->
-	<section class="footer" id="footer">
-	<p class="text-center">
-		<a href="#"><span class="fa fa-arrow-circle-up"></span></a>
-	</p>
-	<div class="container">
-		<p>
-			&copy; 2015 Grimm<br>
-		</p>
-	</div>
-	</section>
+    </div>
 </body>
 
 </html>

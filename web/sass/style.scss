@@ -1,8 +1,8 @@
 $font-stack: 'Roboto', sans-serif;
 $primary-color: #333;
 $secondary-color: #777;
-$line-height: 1.2em;
-$fancy-font: 'Alex Brush',cursive;
+$line-height: 1.4em;
+$fancy-font: 'Cinzel',cursive;
 
 body {
   font: 100% $font-stack;
@@ -10,19 +10,29 @@ body {
   font-size:15px;
   font-weight:450;
   overflow-x:hidden;
-  background-image: url(../img/seamless_paper_texture.png);
-  background-repeat: repeat;
   line-height: $line-height;
   text-align: center;
-  margin: 0px;
+  margin: 0px !important;
+  letter-spacing: 0.5px;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-weight:200;
+  margin: 0px;
+}
+
+.bodyDiv{
+    background-image: url(../img/seamless_paper_texture.png);
+    background-repeat: repeat;
+    z-index: 10;
+}
+
+.paddingDiv {
+      padding: 10px;
 }
 
 .fancyFont {
-	font-family:'Alex Brush',cursive;
+	font-family: $fancy-font;
 }
 
 a {
@@ -39,6 +49,14 @@ a:hover {
     max-width: 500px;
     margin:auto;
     padding-bottom: 20px;
+}
+
+.successBar {
+    color:#022869;
+	text-decoration: none;
+    font-weight: 200px;
+    font-size:3vmin;
+    line-height: $line-height;
 }
 
 .zolaButton {
@@ -114,15 +132,27 @@ section {
 }
 
 .titleHeading {
-    font-size:7vmin;
-    line-height:1.2;
+    font-size:8vmin;
     font-weight: 500;
     color:#fff;
-    font-family:'Alex Brush',cursive;
+    font-family:$fancy-font;
+    text-shadow: #333 0px 0px 8px;
 }
 
 .paddington {
     padding-bottom: 10px;
+}
+
+.titlePage {
+    padding-top: 100vh;
+}
+
+.paddingtonBigger {
+    padding-bottom: 100px;
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    top:80vh;    
 }
 /*---------------------------------Text Boxes----------------------------------*/
 .boxed {
@@ -136,7 +166,7 @@ section {
 .dividerline { 
 	max-width: 600px; /* actual img width */
 	*height: 40px; /* actual img height - IE7 */
-	background-image: url(../img/sepfixed.png);
+	background-image: url(../img/sepfixedvector.png);
 	background-size: cover;
 	background-position: center;
     margin:auto;
@@ -155,6 +185,7 @@ section {
 /*---------------------------------Menu Bar----------------------------------*/
 .navbar {
     background-color: #333;
+    width: 100%;
 }
 
 .menu {
@@ -195,18 +226,15 @@ section {
 	background-repeat:no-repeat;
 	background-attachment:fixed !important;
 	overflow:hidden;
+    position:relative;
+    z-index: -5;
 }
 
 .parallax-pattern-overlay {
 	background-image:url(../img/pattern.png);
 	background-repeat: repeat;
+    z-index: -4;
 }
-
-.containerTitle {
-        height: 95vh;
-        padding-top:60vh;
-    }
-
 /*---------------------------------------------------- Titles ------------------------------------------------------*/
 .sectionTitle {
 	text-align:center;
