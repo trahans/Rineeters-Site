@@ -1,3 +1,11 @@
+@media screen and (max-width: 750px) {
+  .hero {
+    background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455509981/lowbg.jpg"); } }
+
+@media screen and (min-width: 751px) {
+  .hero {
+    background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455509374/highbg.jpg"); } }
+
 body {
   font: 100% "Roboto", sans-serif;
   color: #777;
@@ -10,7 +18,7 @@ body {
   letter-spacing: 0.5px; }
 
 main {
-  background-image: url(../img/seamless_paper_texture.png);
+  background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455510222/seamless_paper_texture_wxszb1.png");
   background-repeat: repeat;
   z-index: 1; }
 
@@ -104,7 +112,6 @@ section {
 
 /*-------------------------------Header-------------------------------*/
 .hero {
-  background-image: url("../img/engagement/High Resolution/D05Q7664crop.jpg");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -117,7 +124,7 @@ section {
   height: 100vh; }
 
 .hero__overlay {
-  background-image: url(../img/pattern.png);
+  background-image: url("http://res.cloudinary.com/djpusrqb6/image/upload/v1455510222/pattern_cnpben.png");
   background-repeat: repeat;
   z-index: 1;
   height: 100vh; }
@@ -166,7 +173,7 @@ section {
   /* actual img width */
   *height: 40px;
   /* actual img height - IE7 */
-  background-image: url(../img/sepfixed.svg);
+  background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455510222/sepfixed_bripdi.svg");
   background-size: cover;
   background-position: center;
   margin: auto; }
@@ -202,7 +209,7 @@ section {
 
 /*-------------------------------Registry-------------------------------*/
 .zola, .zola:hover {
-  content: url("../img/zolaLogo.png");
+  content: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455510416/zolaLogo_j60em8.png");
   position: center;
   width: 200px;
   height: 126px;
@@ -212,4 +219,4 @@ section {
   padding-bottom: 15px; }
 
 .zola:hover {
-  content: url("../img/zolapridelogo.png"); }
+  content: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455510415/zolapridelogo_vqpbf1.png"); }

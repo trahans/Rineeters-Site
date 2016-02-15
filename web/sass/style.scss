@@ -1,8 +1,22 @@
+@import 'cdn-constants';
+
 $font-stack: 'Roboto', sans-serif;
 $primary-color: #333;
 $secondary-color: #777;
 $line-height: 1.4em;
 $fancy-font: 'Cinzel',cursive;
+
+@media screen and (max-width: 750px){
+    .hero {
+	   background-image: url($lowresbg);
+    }
+}
+
+@media screen and (min-width: 751px){
+    .hero {
+	   background-image: url($highresbg);
+    }
+}
 
 body {
   font: 100% $font-stack;
@@ -17,7 +31,7 @@ body {
 }
 
 main{
-    background-image: url(../img/seamless_paper_texture.png);
+    background-image: url($bodybg);
     background-repeat: repeat;
     z-index: 1;
 }
@@ -145,8 +159,7 @@ section {
     padding-bottom: 5px;
 }
 /*-------------------------------Header-------------------------------*/
-.hero {
-	background-image: url('../img/engagement/High Resolution/D05Q7664crop.jpg');
+.hero {	
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -160,7 +173,7 @@ section {
 }
 
 .hero__overlay {
-	background-image:url(../img/pattern.png);
+	background-image:url($overlay);
 	background-repeat: repeat;
     z-index: 1;
     height: 100vh;
@@ -219,7 +232,7 @@ section {
 .dividerline { 
 	max-width: 600px; /* actual img width */
 	*height: 40px; /* actual img height - IE7 */
-	background-image: url(../img/sepfixed.svg);
+	background-image: url($separator);
 	background-size: cover;
 	background-position: center;
     margin:auto;
@@ -258,7 +271,7 @@ section {
 
 /*-------------------------------Registry-------------------------------*/
 .zola {
-    content: url('../img/zolaLogo.png');
+    content: url($zola);
     position:center;
     width:200px;
     height:126px;
@@ -270,5 +283,6 @@ section {
 
 .zola:hover {
     @extend .zola;
-    content: url('../img/zolapridelogo.png');
+    content: url($zolapride);
 }
+
