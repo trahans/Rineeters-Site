@@ -9,147 +9,133 @@ body {
   margin: 0px !important;
   letter-spacing: 0.5px; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 200;
-  margin: 0px; }
-
-.bodyDiv {
+main {
   background-image: url(../img/seamless_paper_texture.png);
   background-repeat: repeat;
-  z-index: 10; }
-
-.paddingDiv {
-  padding: 10px; }
-
-.fancyFont {
-  font-family: "Cinzel", cursive; }
+  z-index: 1; }
 
 a {
   color: #022869;
-  text-decoration: none; }
+  text-decoration: none;
+  font-weight: bold; }
 
 a:hover {
   color: #33a6cc;
   text-decoration: none !important; }
 
-.textBoxContainer {
+.main__content {
+  padding: 10px; }
+
+section h2 {
+  text-align: center;
+  max-width: 960px;
+  margin: 0px auto;
+  color: #333;
+  font: 100% "Cinzel", cursive;
+  font-size: 220%;
+  font-weight: 500; }
+
+article {
+  padding-top: 30px;
   max-width: 500px;
+  margin: auto; }
+  article h3 {
+    font-weight: bold;
+    font-size: 140%;
+    margin-top: 0px; }
+  article h5 {
+    font-weight: bold;
+    font-size: 90%; }
+  article .accommodation {
+    padding-bottom: 25px; }
+    article .accommodation p {
+      padding: 0px;
+      margin: 0px; }
+    article .accommodation h3 {
+      font-weight: bold;
+      font-size: 140%;
+      padding: 0px;
+      margin: 0px; }
+    article .accommodation h5 {
+      font-weight: bold;
+      padding: 0px;
+      margin: 0px; }
+
+.boxed {
+  border: 2px solid #022869;
+  padding: 22px;
   margin: auto;
-  padding-bottom: 20px; }
+  max-width: 400px; }
+  .boxed hgroup {
+    padding-bottom: 10px; }
+    .boxed hgroup h3 {
+      margin: 0px; }
+    .boxed hgroup h4 {
+      font-weight: bold;
+      font-size: 100%; }
+    .boxed hgroup h5 {
+      font-weight: 300;
+      font-size: 90%; }
 
-.successBar {
-  color: #022869;
-  text-decoration: none;
-  font-weight: 200px;
-  font-size: 3vmin;
-  line-height: 1.4em; }
-
-.zolaButton {
-  content: url("../img/zolaLogo.png");
-  position: center;
-  width: 200px;
-  height: 126px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 15px; }
-
-.zolaButton:hover {
-  content: url("../img/zolapridelogo.png");
-  position: center;
-  width: 200px;
-  height: 126px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-
-.accommHeading {
-  font-weight: bold; }
-
-.accommHeadingTitle {
-  font-weight: bold;
-  font-size: 140%px;
-  padding-top: 10px; }
-
-.accommLayout p {
-  padding-bottom: 25px; }
+figure {
+  padding: 15px;
+  border: 2px solid #022869;
+  max-width: 250px;
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: 25px; }
+  figure ul {
+    margin-left: 20px;
+    padding-left: 1em;
+    text-align: left; }
+  figure h5 {
+    margin-top: 0px; }
 
 hr {
   border: 0 !important;
   height: 1px !important;
   background-image: linear-gradient(to right, #afa790, #777, #afa790); }
 
-.toDoLayout p {
-  padding-bottom: 10px; }
-
-ul {
-  margin-left: auto;
-  padding-left: 1em;
-  text-align: left; }
-
-.list {
-  padding-left: 25px;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  border: 2px solid #022869;
-  max-width: 250px;
-  margin: auto; }
-
-a {
-  font-weight: bold; }
-
 section {
   padding-bottom: 30px; }
+
+.copyright {
+  padding-bottom: 5px; }
+
+/*-------------------------------Header-------------------------------*/
+.hero {
+  background-image: url("../img/engagement/High Resolution/D05Q7664crop.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed !important;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+  height: 100vh; }
+
+.hero__overlay {
+  background-image: url(../img/pattern.png);
+  background-repeat: repeat;
+  z-index: 1;
+  height: 100vh; }
 
 .titleHeading {
   font-size: 8vmin;
   font-weight: 500;
   color: #fff;
   font-family: "Cinzel", cursive;
-  text-shadow: #333 0px 0px 8px; }
+  text-shadow: #333 0px 0px 8px;
+  margin: 0px; }
 
-.paddington {
-  padding-bottom: 10px; }
-
-.titlePage {
-  padding-top: 100vh; }
-
-.paddingtonBigger {
+.titleHeading--padding {
   padding-bottom: 100px;
   position: fixed;
   width: 100%;
   margin: auto;
   top: 80vh; }
-
-/*---------------------------------Text Boxes----------------------------------*/
-.boxed {
-  border: 2px solid #022869;
-  padding: 22px;
-  margin: auto;
-  max-width: 400px; }
-
-/*---------------------------------Dividers----------------------------------*/
-.dividerline {
-  max-width: 600px;
-  /* actual img width */
-  *height: 40px;
-  /* actual img height - IE7 */
-  background-image: url(../img/sepfixedvector.png);
-  background-size: cover;
-  background-position: center;
-  margin: auto; }
-
-.dividerline:after {
-  content: " ";
-  display: block;
-  width: 100%;
-  padding-top: 4.918%;
-  /* slope */
-  height: 40px;
-  /* start height */ }
-
-.afterDivider {
-  padding-top: 30px; }
 
 /*---------------------------------Menu Bar----------------------------------*/
 .navbar {
@@ -157,10 +143,10 @@ section {
   width: 100%; }
 
 .menu .navbar-nav {
-  background-color: #333;
   text-align: center;
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  background-color: #333; }
   .menu .navbar-nav li {
     float: none !important;
     display: inline-block; }
@@ -174,33 +160,25 @@ section {
       background-color: #022869;
       color: #33a6cc; }
 
-/*---------------------------------------------------- 	Parallax------------------------------------------------------*/
-.parallax {
-  background-image: url("../img/engagement/High Resolution/D05Q7664crop.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
+/*---------------------------------Dividers----------------------------------*/
+.dividerline {
+  max-width: 600px;
+  /* actual img width */
+  *height: 40px;
+  /* actual img height - IE7 */
+  background-image: url(../img/sepfixed.svg);
   background-size: cover;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed !important;
-  overflow: hidden;
-  position: relative;
-  z-index: -5; }
+  background-position: center;
+  margin: auto; }
 
-.parallax-pattern-overlay {
-  background-image: url(../img/pattern.png);
-  background-repeat: repeat;
-  z-index: -4; }
-
-/*---------------------------------------------------- Titles ------------------------------------------------------*/
-.sectionTitle {
-  text-align: center;
-  max-width: 960px;
-  margin: 0px auto;
-  color: #333;
-  font: 100% "Cinzel", cursive;
-  font-size: 220%;
-  font-weight: 500; }
+.dividerline:after {
+  content: " ";
+  display: block;
+  width: 100%;
+  padding-top: 4.918%;
+  /* slope */
+  height: 40px;
+  /* start height */ }
 
 /*-------------------------------- 	RSVP Form-----------------------------------------*/
 .btn-primary {
@@ -210,21 +188,28 @@ section {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
   background: #33a6cc; }
 
-.successMessage {
-  color: #DAD7CF;
-  background: #337AB7;
-  font-size: 130%;
-  max-width: 250px;
-  margin: auto;
-  border-radius: 5px;
-  padding-top: 8px;
-  padding-bottom: 8px; }
-
-.internalError {
+.message--error {
   color: #FF0000;
-  font-size: 20px; }
+  font-size: 130%;
+  padding-bottom: 10px; }
 
-.form {
-  margin: auto; }
+.message--success {
+  color: #022869;
+  text-decoration: none;
+  font-weight: 200px;
+  font-size: 200%;
+  line-height: 1.4em; }
 
-/*--------------------------------Responsive Web Design-----------------------------------------*/
+/*-------------------------------Registry-------------------------------*/
+.zola, .zola:hover {
+  content: url("../img/zolaLogo.png");
+  position: center;
+  width: 200px;
+  height: 126px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px; }
+
+.zola:hover {
+  content: url("../img/zolapridelogo.png"); }
