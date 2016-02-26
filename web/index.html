@@ -1,80 +1,328 @@
-<!-- index.html -->
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>Angular Forms</title>
 
-  <!-- LOAD BOOTSTRAP CSS -->
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-       <script src="app.js"></script>
+<head>
+    <meta charset="UTF-8" />
+    <title> Rinita and Stephan's Wedding</title>
+    <meta name="description" content="Rinita and Stephan's Wedding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cinzel:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="./bower_components/ngSticky/lib/sticky.js"></script>
+
+    <script src="./js/rsvpform.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body ng-app="formApp" ng-controller="formAppController">
-<div class="container">
-<div class="col-md-6 col-md-offset-3">
+<body ng-app="formApp">
 
-  <!-- PAGE TITLE -->
-  <div class="page-header">
-    <h1>~R.S.V.P.~</h1>
-  </div>
-
-  <!-- SHOW ERROR/SUCCESS MESSAGES -->
-  <div id="success" ng-show="success">You've submitted your RSVP form!</div>
-  <div id="fail" ng-show="fail">An internal error occurred.</div>
-
-  <!-- FORM -->
-  <form ng-submit="processForm()" ng-hide="success">
-    <!-- NAME -->
-    <div id="name-group" class="form-group" ng-class="{'has-error' : errorName }">
-      <label>Name</label>
-      <input required type="text" maxLength="100" name="name" class="form-control" placeholder="John Smith" ng-model="formData.name">
-      <span class="help-block" ng-show = "errorName">{{ errorName }}</span>
-    </div>
-
-    <!-- EMAIL ADDRESS -->
-    <div id="email-group" class="form-group" ng-class="{'has-error' : errorEmail }">
-      <label>Email Address</label>
-      <input required type="email" maxLength="100" name="email" class="form-control" placeholder="johnsmith@gmail.com" ng-model="formData.email">
-      <span class="help-block" ng-show = "errorName">{{ errorEmail }}</span>
-    </div>
-
-   <!-- RSVP RADIO SELECTION -->
-    <div id="RSVP-group" class="form-group">
-      <label>Are you attending?</label>
-      <input required type="radio" name="RSVP" ng-model="formData.RSVP" ng-value= "true"> Yes
-      <input type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="false"> No
-    </div>
-
-    <div ng-show="formData.RSVP">
-        <!-- NUMBER OF ATTENDEES -->
-        <div id="numberAttend-group" class="form-group" ng-class="{'has-error' : errorNumberAttend }">
-        <label>How many are attending with you?</label>
-        <input type="number" min="0" max="100" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberAttend">
-        <span class="help-block" ng-show = "errorNumberAttend">{{ errorNumberAttend }}</span>
+    <!--Header-->
+    <header>
+        <div class="hero">
+            <div class="hero__overlay">
+                <div class="titleHeading--padding">
+                    <h1 class="titleHeading">Rinita and Stephan</h1>
+                    <h1 class="titleHeading">June 25th, 2016</h1>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <!-- COMMENT -->
-        <div id="comment-group" class="form-group" ng-class="{'has-error' : errorComment }">
-        <label>Comments</label>
-        <textarea type="text" maxLength="1000" name="comment" class="form-control" placeholder="Leave us a message! Tell us what song will get you on the dance floor, or if you have any dietary requirements" 
-            ng-model="formData.comment"></textarea>
-        <span class="help-block" ng-show = "errorComment">{{ errorComment }} </span>
+    
+
+    <main>
+        <!--Menu Bar-->
+        <nav sticky class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse menu" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#rsvp">RSVP</a></li>
+                        <li><a href="#venue">Venue</a></li>
+                        <li><a href="#accommodations">Accommodations</a></li>
+                        <li><a href="#FAQ">FAQ</a></li>
+                        <li><a href="#registry">Registry</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main__content">
+            <!--RSVP-->
+            <section  id="rsvp" ng-controller="formAppController">
+                <div class="dividerline"></div>
+                <h2>RSVP</h2>
+                <div class="dividerline"></div>
+                <article>
+                    <div class="boxed">
+                        <hgroup>
+                            <h3>Castle in the Clouds</h3>
+                            <h4>June 25th, 2016, 4:30pm</h4>
+                            <h5>586 Ossipee Park Road,<br> Moultonborough, NH 03254</h5>
+                        </hgroup>
+                        <div ng-show="success" class="message--success">Thank you!</div>
+                        <!-- FORM -->
+                        <form class="textBoxContainer" ng-submit="processForm()" ng-hide="success">
+                            <!-- NAME -->
+                            <div class="form-group" width="10px" ng-class="{'has-error' : errorName }">
+                                <label>Name</label>
+                                <input required type="text" maxLength="100" name="name" class="form-control" placeholder="John Smith" ng-model="formData.name">
+                                <span class="help-block" ng-show="errorName">{{ errorName }}</span>
+                            </div>
+
+                            <!-- EMAIL ADDRESS -->
+                            <div class="form-group" ng-class="{'has-error' : errorEmail }">
+                                <label>Email Address</label>
+                                <input required type="email" ; width="15px" ; maxLength="100" name="email" class="form-control" placeholder="johnsmith@gmail.com"
+                                ng-model="formData.email">
+                                <span class="help-block" ng-show="errorName">{{ errorEmail }}</span>
+                            </div>
+
+                            <!-- RSVP RADIO SELECTION -->
+                            <div class="form-group">
+                                <label>Are you attending?</label>
+                                <input required type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="true"> Yes
+                                <input type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="false"> No
+                            </div>
+
+                            <div ng-show="formData.RSVP">
+                                <!-- NUMBER OF ATTENDEES -->
+                                <div class="form-group" ng-class="{'has-error' : errorNumberAttend }">
+                                    <label>How many are attending with you?</label>
+                                    <input type="number" min="0" max="10" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberAttend">
+                                    <span class="help-block" ng-show="errorNumberAttend">{{ errorNumberAttend }}</span>
+                                </div>
+
+                                <!-- COMMENT -->
+                                <div class="form-group" ng-class="{'has-error' : errorComment }">
+                                    <label>Comments</label>
+                                    <textarea type="text" maxLength="1000" name="comment" class="form-control" placeholder="Leave us a message! Tell us what song will get you on the dance floor, or if you have any dietary requirements"
+                                    ng-model="formData.comment"></textarea>
+                                    <span class="help-block" ng-show="errorComment">{{ errorComment }} </span>
+                                </div>
+                            </div>
+                            <div ng-show="fail" class="message--error">There was an error, please&nbsp;try&nbsp;again.</div>      
+                            <!-- SUBMIT BUTTON -->
+                            <button type="submit" class="btn btn-primary btn-lg">RSVP</button>
+                        </form>
+                    </div>
+                </article>
+            </section>
+
+            <!--the venue-->
+            <section id="venue">
+                <div class="dividerline"></div>
+                <h2>Our Wedding Venue</h2>
+                <div class="dividerline"></div>
+                <article>
+                    <h3>Castle in the Clouds</h3>
+                    <p>The Lucknow Estate, was built in 1913 high in the Ossipee Mountain Range by Thomas Gustave Plant.
+                        It has been known as the Castle in the Clouds since its opening to the public in 1959.</p>
+                    <p>Revel in the beauty of the views, while taking in the magnificent features Plant had installed in
+                        his home. Enjoy a self guided tour as if time stood still in the early 1900s, rooms are still
+                        set up as if the owners had just stepped out for the day, and vintage apparel adorns the house
+                        in closets.</p>
+                    <p>Search for the innovations of the time - central vacuuming, ammonia brine refrigeration, intercom
+                        systems. Admission to the mansion is optional. Rates can be found <a href="http://www.castleintheclouds.org/visit-the-castle/hours-and-admission/">here</a>.</p>
+                    <figure>
+                        <h3>Things To Do</h3>
+                        <ul>
+                            <li>Lucknow Museum</li>
+                            <li>The Art Gallery</li>
+                            <li>Cones in the Clouds (by <br> Shannon Pond)</li>
+                            <li>Horseback Riding</li>
+                            <li>Hiking</li>
+                            <li>Carriage House Restaurant <br>(lunch from 11:30am - 3:30pm)</li>
+                        </ul>
+                        <a href="http://www.castleintheclouds.org/visit-the-castle/hiking-recreation/">Click for more information!</a>
+                    </figure>
+                    <h3>Directions</h3>
+                    <p> If you are coming for a tour earlier in the day or would like to use the one-way Scenic Road:
+                        <br><a href="https://www.google.com/maps/place/455+Old+Mountain+Rd,+Moultonborough,+NH+03254/@43.7203889,-71.3240254,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb33e7a404d3c8b:0xe2d0675222c728b7?sa=X&ved=0ahUKEwi43dDU5cPKAhVG8j4KHYRrBE4Q8gEIGzAA">455 Old Mountain Road, Moultonborough, NH 03254</a></p>
+                    <p> If you are coming for lunch or the wedding:
+                        <br><a href="https://www.google.com/maps/place/Ossipee+Park+Rd,+Moultonborough,+NH+03254/@43.7329686,-71.3373487,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb33e4081eb3a59:0x94ec5bf7dade64a2">586 Ossipee Park Road, Moultonborough, NH 03254</a></p>
+                    <p> Both roads go up to the Castle and to the same parking lot. The difference is that the Scenic Road
+                        will take you to the front gate where you will have to explain that you have come for the Zanzerkia-Trahan
+                        Wedding and do not need to pay for admission.</p>
+                    <p> However, if you want to take a tour you will need to pay for tour tickets either at the gate or inside
+                        the gift shop. In any situation, parking is complimentary.</p>
+                    <figure>
+                        <h5>A helpful directions page can be printed&nbsp;from&nbsp;here:</h5>
+                        <a href="http://www.castleintheclouds.org/getting-here">Castle in the Clouds</a>
+                    </figure>
+                    <h3>What time should I arrive?</h3>
+                    <p> We kindly ask that you arrive before 4:30pm.</p>
+                    <p> After parking, you may meet at the Carriage House. Here, a trolley will whisk you up to the top of
+                        the mountain in just a few minutes! If you are early the Carriage House has excellent food and
+                        drinks!</p>
+                </article>
+            </section>
+
+            <!--accommodations-->
+            <section id="accommodations">
+                <div class="dividerline"></div>
+                <h2>Accommodations</h2>
+                <div class="dividerline"></div>
+                <article>
+                        <div class="accommodation">
+                            <p>We strongly recommend booking a place to stay in the next few weeks, the Lakes region is a highly
+                                popular summer tourist destination. We've provided some starting points, but there are many
+                                great options in the area. However, we would advise against the Rodeway House Inn based on
+                                reviews. Feel free to contact our families if you'd like recommendations!</p>
+                         </div>
+                         <div class="accommodation">
+                            <p><a href="https://www.choicehotels.com/new-hampshire/west-ossipee/econo-lodge-hotels/nh058?source=pmftripblaw&pmf=tripbl">Econo Lodge West Ossipee</a></p>
+                            <h5>603-301-1426</h5>
+                            <a href="https://www.google.com/maps/place/2365+NH-16,+West+Ossipee,+NH+03890/@43.8204044,-71.2054685,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb3112316b89daf:0xb9291398f0adf58a">2365 Route 16, West Ossipee, NH 03890</a>
+                            <p>The hotel is about 25 minutes from the Castle. It is also close to where Rinita and Stephan's
+                            families will be staying. We have a room block at a reduced rate under "Rinita and Stephan's
+                            Wedding". It is $130+tax/night for a king bed for two adults with a two night minimum, breakfast
+                            included. Additional charge for two double beds and additional adults. We can add more rooms
+                            if they say we've filled our room block.</p>
+                        </div>               
+                        <div class="accommodation">
+                            <p><a href="http://www.millfalls.com/">The Inn at Mill Falls (Meredith Center)</a></p>
+                            <h5>800-622-6455</h5>
+                            <p>Group of differently named hotels that are close together and surrounded by streets of boutiques,
+                                shops, and restaurants. It adjacent to Lake Winnipesaukee. About 25 minutes from the Castle.
+                                Somewhat costly</p>
+                        </div>
+                        <div class="accommodation">
+                            <p><a href="http://www.ballardhouseinn.com/">Ballard House Inn</a></p>
+                            <h5>603-279-3434</h5>
+                            <p>There are various bed and breakfast style inns around Meredith and nearby. Our recommendation
+                                is the Ballhard House Inn</p>
+                        </div>
+                        <div class="accommodation">
+                            <p><a href="http://www.centerharborinn.com/">Center Harbor</a></p>
+                            <h5>603-253-4347</h5>
+                            <p>This is a waterfront option, only 18 minutes from the Castle. Many restaurants and other
+                                amenities nearby. Reviews are mixed.</p>
+                        </div>
+                        <div class="accommodation">
+                            <p><a href="https://www.choicehotels.com/new-hampshire/ashland/comfort-inn-hotels/nh022">Comfort Inn Ashland</a></p>
+                            <h5>603-968-7668</h5>
+                            <p>This is close to the main highway I-93, so you can begin your return trip sooner. About
+                                40 minutes from the Castle.</p>
+                        </div>
+                        <div class="accommodation">
+                            <p><a href="http://www.vrbo.com">VRBO</a> or <a href="http://www.vacationrentals.com">Vacation Rentals</a></p>
+                            <p>You can stay longer or have a larger group together! There are many single homes and cottages.
+                                Many say that they have certain nights of minimums, however most them are willing to do a
+                                shorter stay if you simply contact the owner.</p>
+                        </div>
+                        <hr>
+                        <h3>Things To Do</h3>
+                        <p>The Lakes Region is popular for hiking, swimming, boating, camping, fishing, kayaking, golfing,
+                            breweries, etc. There are tons of scenic views and places to see!</p>                            
+                        <p>Just north of the Castle is the infamous White Mountains region! Most of the ski slopes offer
+                            summer gondola rides with expansive views of Mount Washington, Tuckermans Ravine, and the
+                            Presidential Mountain Range.</p>
+                        <p>You can get a similar view with the historic Mount Washington Cog Railway, Cannon Mountain
+                            Aerial Tramway, WildCat Mountain Gondola, Hobo Railroad, and so many more.</p>
+                        <p>The Flume Gorge has many spectacular waterfalls in Franconia Notch State Park.</p>
+                        <p>Visit the Lost River Gorge and Boulder Caves to see glacial caves, boulders, and even more waterfalls.</p>
+                        <p>The Kancamangus Highway is an excellent scenic drive through the mountains with many places to
+                            stop along the way.</p>
+                        <p>Stephan and I spend most of our weekends and anniversaries in the Lakes Region and the White
+                            Mountains region! Let us know how long you're staying and we can help you choose some great things to do!
+                            We especially love waterfalls and short hikes if you'd like a recommendation. Please email
+                            us, we love trip planning!</p>
+                        <p><a class="accommHeadingTitle" href="http://lakesregion.org/">Click here for more information!</a></p>
+                        <p><a class="accommHeadingTitle" href="http://www.visitwhitemountains.com/things-see-and-do/attractions/major-attractions">Even more info!</a></p>
+                </article>
+            </section>
+
+            <!--FAQ-->
+            <section id="FAQ">
+                    <div class="dividerline"></div>
+                    <h2>F.A.Q.</h2>
+                    <div class="dividerline"></div>
+                    <article>
+                        <h4>Food/Dietary Concerns</h4>
+                        <p>We will be having an Indian buffet, but also a few other non-Indian items. If you have any dietary
+                            concerns please reach out to us, we want everyone to be fed well!</p>
+                        <h4>What to wear?</h4>
+                        <p>We want everyone to be comfortable, so we'd say semi-formal is great here! The ceremony location
+                            will have grass, the reception will be indoors. If you would like to change outfits the cocktail
+                            hour will be the best time to do so.</p>
+                        <h4>Party time fun!</h4>
+                        <p>Alcoholic beverages will be available by cash or credit card during cocktail hour and dinner
+                            from 5:30-10:30pm.</p>
+                        <h4>Can I bring an additional guest?</h4>
+                        <p>We have such close and exciting family and friends! However, our beautiful venue has limited
+                            space and does not leave any room for unexpected extras. Please check your invite for the
+                            number of seats we've saved for you. We know you have a great time with our group of loved
+                            ones!</p>
+                        <h4>What if it rains?!</h4>
+                        <p>Rest assured! The trolleys will get you to the ceremony site, the venue will also provide clear
+                            umbrellas for all guests, as well as towels.</p>
+                </article>
+            </section>
+
+            <!--registry-->
+            <section id="registry">
+                <div>
+                    <div class="dividerline"></div>
+                    <h2>Registry</h2>
+                    <div class="dividerline"></div>
+                    <article>
+                        <div class="textBoxContainer">
+                            <p>We are so grateful to have your support as friends and family. We have registered at Zola.</p>
+                            <p>If you purchase something through another source, please let us or one of our family members know
+                                so that we can check it off!</p>
+                        </div>
+                        <a href="https://www.zola.com/registry/rinitaandstephan">
+                            <div class="zola"></div>
+                        </a>
+                        <div class="textBoxContainer">
+                            <p>We are planning a honeymoon to Hawaii in June of 2017, we look forward to…</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!--contact-->
+            <section id="contact">
+                <div class="dividerline"></div>
+                <h2>Contact Us</h2>
+                <div class="dividerline"></div>
+                <article>
+                    <p>You can reach us at</p>
+                    <p><a href="mailto:rzst2016@gmail.com">rzst2016@gmail.com</a></p>
+                    <p>And of course you can reach us by phone, <br>our personal emails, our parents, carrier pigeon, etc.</p>
+                </article>
+            </section>
+
+            <!--footer-->
+            <footer>
+                <p><a href="#"><span class="fa fa-arrow-circle-up"></span></a></p>
+                <div class="copyright">
+                    <p>&copy; 2015 Grimm</p>
+                </div>
+            </footer>
         </div>
-    </div>
-
-    <!-- SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-success btn-lg btn-block">
-      RSVP    </button>
-  </form>
-
-<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
-<pre>
-    {{ processData }}
-</pre>
-
-</div>
-</div>
+    </main>
 </body>
+
 </html>
