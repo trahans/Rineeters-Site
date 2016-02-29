@@ -101,15 +101,15 @@
                             <!-- RSVP RADIO SELECTION -->
                             <div class="form-group">
                                 <label>Are you attending?</label>
-                                <input required type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="true"> Yes
-                                <input type="radio" name="RSVP" ng-model="formData.RSVP" ng-value="false"> No
+                                <input required type="radio" name="RSVP" ng-model="formData.RSVPed" ng-value="true"> Yes
+                                <input type="radio" name="RSVP" ng-model="formData.RSVPed" ng-value="false"> No
                             </div>
 
-                            <div ng-show="formData.RSVP">
+                            <div ng-show="formData.RSVPed">
                                 <!-- NUMBER OF ATTENDEES -->
                                 <div class="form-group" ng-class="{'has-error' : errorNumberAttend }">
                                     <label>How many are attending with you?</label>
-                                    <input type="number" min="0" max="10" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberAttend">
+                                    <input type="number" min="0" max="10" name="numberAttend" class="form-control" placeholder="#" ng-model="formData.numberOfGuests">
                                     <span class="help-block" ng-show="errorNumberAttend">{{ errorNumberAttend }}</span>
                                 </div>
 
