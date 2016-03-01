@@ -7,7 +7,7 @@ using Rinita.Stephan.Helpers;
 
 namespace Rinita.Stephan.Controllers
 {
-    [EnableCors(origins:"http://rinita-stephan.com", headers:"*", methods:"*")]
+    [EnableCors(origins:"*", headers: "*", methods:"*")]
 	public class RSVPController : ApiController
 	{
         private readonly IPostHelper _postHelper;
