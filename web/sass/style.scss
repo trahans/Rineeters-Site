@@ -40,6 +40,8 @@ a:hover {
 }
 
 section {
+	padding-top: 55px;
+	
     h2{
         text-align:center;
         max-width:960px;
@@ -48,7 +50,6 @@ section {
         font: 100% $fancy-font;
         font-size:220%;
         font-weight: 500;
-		padding-top: 20px;
     }
 }
 
@@ -282,6 +283,20 @@ section {
 	   background-image: url($lowresbg);
 	   background-attachment: scroll;
     }
+	
+	.menu {
+		.navbar-nav {
+			text-align: left;
+		   
+			li {
+				display: block;
+				
+				a {
+					line-height: 30px;
+				}
+			}
+		}
+	}
 }
 
 @media screen and (min-width: 751px){
