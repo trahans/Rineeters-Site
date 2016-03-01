@@ -16,7 +16,7 @@
             method  : 'POST',
             url     : 'http://api.rinita-stephan.com/api/RSVP',
             data    : $scope.formData,  // pass in data as strings
-            headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
+            headers : { 'Content-Type': 'text/plain' }  // set the headers so angular passing info as form data (not request payload)
             }).then(function successCallback(response) {
                     console.log(response);
                     $scope.success = true;
