@@ -6,19 +6,6 @@ $secondary-color: #777;
 $line-height: 1.4em;
 $fancy-font: 'Cinzel',cursive;
 
-@media screen and (max-width: 750px){
-    .hero {
-	   background-image: url($lowresbg);
-	   background-attachment: scroll !important;
-    }
-}
-
-@media screen and (min-width: 751px){
-    .hero {
-	   background-image: url($highresbg);
-    }
-}
-
 body {
   font: 100% $font-stack;
   color: $secondary-color;
@@ -61,6 +48,7 @@ section {
         font: 100% $fancy-font;
         font-size:220%;
         font-weight: 500;
+		padding-top: 20px;
     }
 }
 
@@ -285,5 +273,20 @@ section {
 .zola:hover {
     @extend .zola;
     content: url($zolapride);
+}
+
+/*-----------------------------Media Queries----------------------------*/
+
+@media screen and (max-width: 750px){
+    .hero {
+	   background-image: url($lowresbg);
+	   background-attachment: scroll;
+    }
+}
+
+@media screen and (min-width: 751px){
+    .hero {
+	   background-image: url($highresbg);
+    }
 }
 
