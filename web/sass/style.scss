@@ -9,6 +9,7 @@ $fancy-font: 'Cinzel',cursive;
 @media screen and (max-width: 750px){
     .hero {
 	   background-image: url($lowresbg);
+	   background-attachment: scroll !important;
     }
 }
 
@@ -165,7 +166,7 @@ section {
     background-size: cover;
     text-align: center;
 	background-repeat:no-repeat;
-	background-attachment:fixed !important;
+	background-attachment:fixed;
 	overflow:hidden;
     position:relative;
     z-index: -1;

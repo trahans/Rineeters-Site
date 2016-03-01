@@ -1,6 +1,7 @@
 @media screen and (max-width: 750px) {
   .hero {
-    background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455509981/lowbg.jpg"); } }
+    background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455509981/lowbg.jpg");
+    background-attachment: scroll !important; } }
 
 @media screen and (min-width: 751px) {
   .hero {
@@ -117,7 +118,7 @@ section {
   background-size: cover;
   text-align: center;
   background-repeat: no-repeat;
-  background-attachment: fixed !important;
+  background-attachment: fixed;
   overflow: hidden;
   position: relative;
   z-index: -1;
