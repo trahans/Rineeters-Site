@@ -20,10 +20,10 @@ namespace Rinita.Stephan.Controllers
         }
 
         // GET api/<controller>
-		public IEnumerable<RSVP> Get()
-		{
-		    return _getHelper.GetAllRsvps();
-		}
+		//public IEnumerable<RSVP> Get()
+		//{
+		//    return _getHelper.GetAllRsvps();
+		//}
 
 		// POST api/<controller>
 		public string Post([FromBody] RSVP rsvp)
