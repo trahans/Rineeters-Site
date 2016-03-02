@@ -278,7 +278,7 @@ section {
 
 /*-----------------------------Media Queries----------------------------*/
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 768px){
     .hero {
 	   background-image: url($lowresbg);
 	   background-attachment: scroll;
@@ -299,7 +299,7 @@ section {
 	}
 }
 
-@media screen and (min-width: 751px){
+@media screen and (min-width: 769px){
     .hero {
 	   background-image: url($highresbg);
     }
