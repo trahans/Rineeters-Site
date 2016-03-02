@@ -280,8 +280,21 @@ section {
 
 @media screen and (max-width: 768px){
     .hero {
-	   background-image: url($lowresbg);
 	   background-attachment: scroll;
+    }
+	
+	.menu {
+		.navbar-nav {
+			li {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px){
+    .hero {
+	   background-image: url($lowresbg);
     }
 	
 	.menu {
@@ -299,7 +312,7 @@ section {
 	}
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 768px){
     .hero {
 	   background-image: url($highresbg);
     }

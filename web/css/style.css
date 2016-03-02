@@ -218,8 +218,13 @@ section {
 /*-----------------------------Media Queries----------------------------*/
 @media screen and (max-width: 768px) {
   .hero {
-    background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455509981/lowbg.jpg");
     background-attachment: scroll; }
+  .menu .navbar-nav li {
+    display: inline-block; } }
+
+@media screen and (max-width: 767px) {
+  .hero {
+    background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455509981/lowbg.jpg"); }
   .menu .navbar-nav {
     text-align: left; }
     .menu .navbar-nav li {
@@ -227,6 +232,6 @@ section {
       .menu .navbar-nav li a {
         line-height: 30px; } }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   .hero {
     background-image: url("https://res.cloudinary.com/djpusrqb6/image/upload/v1455509374/highbg.jpg"); } }
