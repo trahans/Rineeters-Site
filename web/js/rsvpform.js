@@ -8,9 +8,13 @@
         // $scope will allow this to pass between controller and view
         $scope.formData = {};
         $scope.processData={};
+		
+		// define submit button disabled variable to prevent spam clicks on form submission
+		$scope.buttonDisabled = false;
         
         // process the form
         $scope.processForm = function() {
+			$scope.buttonDisabled = true;
             $scope.processData=$scope.formData;
             $http({
             method  : 'POST',
@@ -20,9 +24,11 @@
             }).then(function successCallback(response) {
                     console.log(response);
                     $scope.success = true;
+					$scope.buttonDisabled = false;
                 }, function errorCallback(response) {
                     console.log(response);
                     $scope.fail = true;
+					$scope.buttonDisabled = false;
             });
         };
     });
